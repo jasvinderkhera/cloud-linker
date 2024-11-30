@@ -1,0 +1,15 @@
+.header-outer-container{
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.header{
+    height: 80px;
+    background-color: transparent;
+    z-index: 1;
+}
+
+.logoImage{
+    height: 60px;
+}
