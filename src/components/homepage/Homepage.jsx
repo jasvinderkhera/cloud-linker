@@ -1,10 +1,15 @@
 import React from "react";
 import "./Homepage.css";
 import { images } from "../../constant/ImagePath";
+import { Link } from "react-router-dom";
+import Header from "../header/Header";
+import Footer from "../footer/Footer";
 
 function Homepage() {
   return (
+    
     <div className="homepage ">
+      <Header/>
       <div className="topContainer d-flex flex-column-reverse flex-md-row">
         <div className="leftCircle d-flex flex-column justify-content-center align-items-center">
           <div className="welcome">
@@ -21,10 +26,10 @@ function Homepage() {
           </div>
           <div className="actionButtons d-flex gap-3 pt-3">
             <div className="login">
-              <button className="px-5 py-1">Login</button>
+              <Link className="px-5 py-2 nav-link" to={'/login'}>Login</Link>
             </div>
             <div className="signup">
-              <button className="px-5 py-1">Sign up</button>
+              <Link className="px-5 py-2 nav-link" to={'/login'}>Sign up</Link>
             </div>
           </div>
         </div>
@@ -140,6 +145,7 @@ function Homepage() {
         </div>
         
       </div>
+      <Footer/>
     </div>
   );
 }

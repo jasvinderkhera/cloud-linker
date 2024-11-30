@@ -41,19 +41,19 @@
     color: var(--text-secondary);
 }
 
-.actionButtons button{
+.actionButtons a{
     font-size: 18px;
     font-weight: 600;
     border-radius: 8px;
 }
 
-.actionButtons .login button{
+.actionButtons .login a{
     background-color: white;
     color: var(--main-color);
     border: 1px solid var(--main-color);
 }
 
-.actionButtons .signup button{
+.actionButtons .signup a{
     background-color: var(--main-color);
     color: white;
     border: 1px solid var(--main-color);

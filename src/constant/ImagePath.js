@@ -7,6 +7,8 @@ import fb from '../assets/images/fb.png'
 import insta from '../assets/images/insta.png'
 import ball from '../assets/images/ball.png'
 import linkedin from '../assets/images/linkedin.png'
+import loginPage from '../assets/images/loginPage.png'
+
 
 
 export const images = {
@@ -18,5 +20,6 @@ export const images = {
     insta:insta,
     ball:ball,
     linkedin:linkedin,
+    loginPage:loginPage,
 
 }

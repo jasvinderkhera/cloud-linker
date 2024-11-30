@@ -20,7 +20,7 @@ function Footer() {
             </div>
           </div>
         </div>
-        <div className="col-md-8 footerBox2 d-flex justify-content-between">
+        <div className="col-md-8 footerBox2 mt-3 mt-md-0 d-flex flex-column flex-md-row gap-md-0 gap-4 justify-content-between">
 
           <div className="footerBox21">
             <h4>Features</h4>

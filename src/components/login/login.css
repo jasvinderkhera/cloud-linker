@@ -1,0 +1,19 @@
+.ellipse{
+    height: 660px;
+    background: url('../../assets/images/Ellipse9.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.Loginlogo{
+    height: 70px;
+}
+
+.Loginlogo img{
+    height: 100%;
+object-fit: cover;
+}
+
+.mainBlue{
+    color: var(--main-color);
+}
