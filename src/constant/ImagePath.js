@@ -23,5 +23,6 @@ export const images = {
     linkedin:linkedin,
     loginPage:loginPage,
     mobileMenu:mobileMenu,
+    
 
 }

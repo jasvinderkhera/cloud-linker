@@ -12,7 +12,7 @@ function Register() {
         </div>
         <div className="row">
             <div className="col-md-6 ellipse d-md-flex d-none justify-content-center align-items-center">
-            <img src={images.loginPage} alt="" className='img-fluid'/>
+            {/* <img src={images.loginPage} alt="" className='img-fluid'/> */}
             </div>
             <div className="col-md-6 my-md-1 my-5 d-flex justify-content-center align-items-center">
               <div>

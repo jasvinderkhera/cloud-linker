@@ -1,8 +1,9 @@
 .ellipse{
-    padding: 50px 0;
-    background: url('../../assets/images/Ellipse9.png');
-    background-size: cover;
+    padding: 40px 0;
+    background: url('../../assets/images/loginBg.svg');
+    background-size: fill;
     background-repeat: no-repeat;
+    height: 600px;
 }
 
 .Loginlogo{
@@ -17,3 +18,4 @@ object-fit: cover;
 .mainBlue{
     color: var(--main-color);
 }
+
