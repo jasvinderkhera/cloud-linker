@@ -29,7 +29,7 @@ function Homepage() {
               <Link className="px-5 py-2 nav-link" to={'/login'}>Login</Link>
             </div>
             <div className="signup">
-              <Link className="px-5 py-2 nav-link" to={'/login'}>Sign up</Link>
+              <Link className="px-5 py-2 nav-link" to={'/register'}>Sign up</Link>
             </div>
           </div>
         </div>
@@ -44,22 +44,22 @@ function Homepage() {
           </div>
           <div className="featuresList">
             <ul>
-              <li className="d-flex align-items-start listColor mb-3">
+              <li className="d-flex align-items-start mb-3">
                 Secure Document Uploads: Upload your documents in a safe and
                 private environment. Our platform ensures that your files are
                 encrypted and protected.
               </li>
-              <li className="d-flex align-items-start listColor mb-3">
+              <li className="d-flex align-items-start mb-3">
                 Easy Sharing: Share your documents with friends, colleagues, or
                 clients instantly, whether via email, direct link, or within a
                 specific group.
               </li>
-              <li className="d-flex align-items-start listColor mb-3">
+              <li className="d-flex align-items-start mb-3">
                 Organized Storage: Keep your files neatly organized with
                 folders, tags, and search features, so you can always find what
                 you need when you need it.
               </li>
-              <li className="d-flex align-items-start listColor mb-3">
+              <li className="d-flex align-items-start mb-3">
                 Access Anywhere: Your documents are accessible from any device,
                 anywhere, at any time—perfect for work, study, or personal use.
               </li>
@@ -80,19 +80,19 @@ function Homepage() {
           </div>
           <div className="featuresList">
             <ul className="pe-4">
-              <li className="d-flex align-items-start listColor mb-3">
+              <li className="d-flex align-items-start mb-3">
                 Simplicity: No complicated software or confusing steps—just
                 upload, share, and go.
               </li>
-              <li className="d-flex align-items-start listColor mb-3">
+              <li className="d-flex align-items-start mb-3">
                 Security: We take your privacy seriously, employing
                 industry-standard encryption and secure storage.
               </li>
-              <li className="d-flex align-items-start listColor mb-3">
+              <li className="d-flex align-items-start mb-3">
                 Collaboration: Whether for work or personal projects,
                 collaborate on documents with ease.
               </li>
-              <li className="d-flex align-items-start listColor mb-3">
+              <li className="d-flex align-items-start mb-3">
                 Get Started Today! <br /> Ready to start sharing and storing your
                 documents in a secure and efficient way? Sign up now to unlock
                 all the features and start managing your documents with ease.
@@ -108,16 +108,16 @@ function Homepage() {
           </div>
           <div className="workList">
             <ol>
-              <li className="d-flex align-items-start listColor mb-3">
+              <li className="d-flex align-items-start  mb-3">
               1. Sign Up / Log In: Create an account or log into your existing one to get started.
               </li>
-              <li className="d-flex align-items-start listColor mb-3">
+              <li className="d-flex align-items-start  mb-3">
               2. Upload Documents: Simply drag and drop your files into our easy-to-use uploader.
               </li>
-              <li className="d-flex align-items-start listColor mb-3">
+              <li className="d-flex align-items-start  mb-3">
               3. Share with Ease: Once your documents are uploaded, share them instantly via email, link, or with specific users.
               </li>
-              <li className="d-flex align-items-start listColor mb-3">
+              <li className="d-flex align-items-start  mb-3">
               4. Stay Secure: We ensure the privacy and protection of your data with top-notch encryption methods.
               </li>
             </ol>

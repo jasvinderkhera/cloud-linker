@@ -38,7 +38,6 @@
 
 .details{
     width: 65%;
-    color: var(--text-secondary);
 }
 
 .actionButtons a{
@@ -119,7 +118,7 @@ flex: 1;
 
     .rightCircle{
         width: 100%;
-        height: 500px;
+        height: 450px;
          padding: 30px 20px;
          overflow: hidden;
     }
@@ -129,7 +128,7 @@ flex: 1;
         background: transparent ;
          padding: 30px 20px;
          position: absolute;
-         top: 300px;
+         top: 260px;
     }
     .welcomeDialogue{
         font-size: 45px;
