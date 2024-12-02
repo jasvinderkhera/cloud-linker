@@ -19,8 +19,8 @@ function Register() {
                 <h2 className='h1 mainBlue mb-4 text-center'>Welcome to Cloud Linker!</h2>
                 <p className="text-center fs-5 mb-4">Upload your documents in a safe and private space</p>
                 <form action=""></form>
-                <input type="username" placeholder='ex. kishansharma_1' className="form-control mb-4 p-2" />
-                <input type="email" placeholder='ex. kishansharma@gmail.com' className="form-control mb-4 p-2" />
+                <input type="username" placeholder='Username' className="form-control mb-4 p-2" />
+                <input type="email" placeholder='Email' className="form-control mb-4 p-2" />
                 <input type="password" placeholder='Password' className="form-control mb-4 p-2" />
                 <input type="password" placeholder='Confirm Password' className="form-control mb-4 p-2" />
                 <a href="" className='text-decoration-none'>Forgot Password?</a>

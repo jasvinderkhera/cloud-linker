@@ -29,7 +29,7 @@ function Homepage() {
               <Link className="px-5 py-2 nav-link" to={'/login'}>Login</Link>
             </div>
             <div className="signup">
-              <Link className="px-5 py-2 nav-link" to={'/register'}>Sign up</Link>
+              <Link className="px-5 py-2 nav-link" to={'/register'}>Register</Link>
             </div>
           </div>
         </div>

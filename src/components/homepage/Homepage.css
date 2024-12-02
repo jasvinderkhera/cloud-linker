@@ -7,6 +7,7 @@
   height: 90vh;
   width: 50%;
   background: url('../../assets/images/Ellipseright.png');
+  backdrop-filter: 1;
   background-repeat: no-repeat;
   background-size: fill;
   background-position: bottom;
