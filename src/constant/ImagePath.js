@@ -9,6 +9,7 @@ import ball from '../assets/images/ball.png'
 import linkedin from '../assets/images/linkedin.png'
 import loginPage from '../assets/images/loginPage.png'
 import mobileMenu from "../assets/images/mobileMenu.png"
+import user from "../assets/images/user.png"
 
 
 
@@ -23,6 +24,6 @@ export const images = {
     linkedin:linkedin,
     loginPage:loginPage,
     mobileMenu:mobileMenu,
-    
+    user:user,
 
 }

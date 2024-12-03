@@ -14,3 +14,8 @@
 .mainPageContainer{
     min-height: 400px;
 }
+
+.profileImg{
+    height: 50px;
+    width: 50px;
+}
