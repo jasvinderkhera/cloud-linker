@@ -1,0 +1,40 @@
+.header-outer-container{
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.header{
+    height: 80px;
+    background-color: transparent;
+    z-index: 1;
+}
+
+.logoImage{
+    height: 60px;
+}
+
+.mobileMenu{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    left: 0;
+}
+
+.mobileLogo{
+    height: 35px;
+}
+
+.menuLogo{
+    z-index: 4;
+}
+
+.mobileMenuItems{
+ position: absolute;   
+ top: 0;
+ bottom: 0;
+ left: 0;
+ right: 0;
+ background-color: rgba(0, 0, 0, 0.618);
+ z-index: 3;
+}

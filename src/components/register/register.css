@@ -1,0 +1,19 @@
+.ellipse{
+    padding: 40px 0;
+    background: url('../../assets/images/loginBg.svg');
+    background-size: fill;
+    background-repeat: no-repeat;
+}
+
+.Loginlogo{
+    height: 70px;
+}
+
+.Loginlogo img{
+    height: 100%;
+object-fit: cover;
+}
+
+.mainBlue{
+    color: var(--main-color);
+}

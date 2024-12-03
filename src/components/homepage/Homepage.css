@@ -1,0 +1,150 @@
+.homepage{
+    width: 100%;
+    min-height: 100vh;
+}
+
+.rightCircle{
+  height: 90vh;
+  width: 50%;
+  background: url('../../assets/images/Ellipseright.png');
+  backdrop-filter: 1;
+  background-repeat: no-repeat;
+  background-size: fill;
+  background-position: bottom;
+  position: relative;
+  z-index: -1;
+}
+
+.rightCircle img{
+    height: 500px;
+    width: 500px;
+    position: absolute;
+    bottom: 100px;
+}
+
+.leftCircle{
+    height: 600px;
+    width: 50%;
+    background: url('../../assets/images/Ellipseleft.png');
+    background-repeat: no-repeat;
+}
+
+.welcomeDialogue{
+    font-size: 50px;
+    width: 60%;
+    font-weight: bold;
+    color: var(--text-secondary);
+    margin-left: 80px;
+}
+
+.details{
+    width: 65%;
+}
+
+.actionButtons a{
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 8px;
+}
+
+.actionButtons .login a{
+    background-color: white;
+    color: var(--main-color);
+    border: 1px solid var(--main-color);
+}
+
+.actionButtons .signup a{
+    background-color: var(--main-color);
+    color: white;
+    border: 1px solid var(--main-color);
+}
+
+
+/* --------------------------------------------------features------------------------------------------------------------------------ */
+
+
+.featuretitle p{
+    font-size: 45px;
+    font-weight: bold;
+}
+
+.featureBox1{
+    flex:1.2
+}
+
+.featuresList ul {
+    list-style: none; /* Remove default list style */
+  }
+
+  .featuresList li::before {
+    content: '★'; /* Custom symbol or text */
+    margin-right: 10px; /* Spacing between marker and text */
+    color: blue;
+    font-size: 24px;
+  }
+
+.featureBox2{
+    flex:1
+}
+
+.featureBox2 img{
+    margin-top: 50px;
+}
+
+.chooseBox2{
+flex: 1;
+}
+
+.chooseBox1{
+    flex:1.2
+}
+
+.workBox1{
+    flex: 1;
+}
+.workBox2{
+    flex: 1.2;
+    height: 400px;
+}
+
+@media screen and (max-width:768px) {
+    .rightCircle img{
+        height: 300px;
+        width: 100%;
+        position: absolute;
+        bottom: 100px;
+        object-fit: cover;
+        
+    }
+
+    .rightCircle{
+        width: 100%;
+        height: 450px;
+         padding: 30px 20px;
+         overflow: hidden;
+    }
+    .leftCircle{
+        height: 500px;
+        width: 100%;
+        background: transparent ;
+         padding: 30px 20px;
+         position: absolute;
+         top: 260px;
+    }
+    .welcomeDialogue{
+        font-size: 45px;
+        margin-left: 0;
+        width: 100%;
+    }
+    .details{
+        width: 100%;
+    }
+
+    .features{
+        margin-top: 250px !important;
+    }
+    .featuresList ul{
+        list-style: none;
+        padding-left: 0;
+    }
+}
