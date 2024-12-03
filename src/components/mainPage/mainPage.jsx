@@ -36,8 +36,13 @@ function MainPage() {
       </div>
       <div className="container my-4">
         <div className="row">
-          <div className="col-md-3 mainPageContainer py bgSkyBlue rounded-5">
+          <div className="col-md-3 mainPageContainer p-4 bgSkyBlue rounded-5">
+            <div className="bg-white py-5 mb-5 text-center">
+              Welcome, {user.email}
+              {user.username}
+            </div>
 
+            <UploadDoc/>
           </div>
           <div className="col-md-9 mainPageContainer px-5 py-3">
             <div className="inputBox">
