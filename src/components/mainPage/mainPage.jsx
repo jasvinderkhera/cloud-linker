@@ -60,7 +60,7 @@ function MainPage() {
       <div className="container my-4">
         <div className="row">
           <div className="col-md-3 mainPageContainer p-4 bgSkyBlue rounded-5">
-            <div className="bg-white p-3 mb-5 text-center d-flex rounded-3 gap-3 align-items-center">
+            <div className="bg-white px-3 py-2 mb-5 text-center d-flex rounded-3 gap-3 align-items-center">
              <img src={images.user} alt="" className='img-fluid profileImg'/>
            <div>
            <p className='mb-2 fw-bold'>Welcome, {username} </p>

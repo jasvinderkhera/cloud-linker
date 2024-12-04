@@ -3,3 +3,29 @@
     width: 150px;
     object-fit: cover;
 }
+.imgContainer{
+    width: 242px;
+}
+
+.docBox{
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    flex-direction: column;
+    height: 280px;
+    width: 282px;
+}
+
+.actionBtn img{
+    height: 20px;
+    width: 20px;
+}
+
+.actionBtn{
+    position: relative;
+}
+.actions{
+    position: absolute;
+    top: -55px;
+    right: -30px;
+}

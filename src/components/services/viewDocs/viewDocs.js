@@ -3,11 +3,13 @@ import './viewDocs.css'
 import { ref, onValue, remove } from 'firebase/database';
 import { realtimeDb } from '../../../firebase/firebase';
 import { auth } from '../../../firebase/firebase'; // Ensure you're importing auth
+import { images } from '../../../constant/ImagePath';
 
 function ViewDocs() {
     const [documents, setDocuments] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [show, setShow] =useState(null)
 
     useEffect(() => {
         const user = auth.currentUser; // Get the current user from auth
@@ -83,11 +85,12 @@ function ViewDocs() {
             {documents.length === 0 ? (
                 <p>No documents found.</p>
             ) : (
-                <div className='d-flex flex-wrap gap-4'>
+                <div className='d-flex py-2 flex-wrap gap-4'>
                     {documents.map((doc) => (
-                        <div className='py-3 px-5 docBox text-center bgSkyBlue rounded-3' key={doc.id}>
+                        <div className='docBox p-3 text-center bgSkyBlue rounded-3' key={doc.id}>
                             
-                           <div className="bg-white p-3">
+                           <div className=" py-3 px-2 d-flex justify-content-center">
+                           <div className="imgContainer bg-white py-2 rounded-3">
                            <img 
                                 src={`data:image/png;base64,${doc.image}`} 
                                 alt={doc.name} 
@@ -95,12 +98,20 @@ function ViewDocs() {
                                 className='img-fluid'
                             />
                            </div>
-                            <p>{doc.name}</p>
-                            <p>{formatTimestamp(doc.createdAt)}</p>
-                            <div className="actions d-flex gap-2 justify-content-center">
+                           </div>
+                            
+                            <div className="actionBtn d-flex align-items-center justify-content-between">
+                                <p></p>
+                            <p className='mb-0 fw-bold'>{doc.name}</p>
+                                <img src={images.more} alt="" className='img-fluid' onClick={()=>setShow(show === doc.id ? null : doc.id)}/>
+                                {show === doc.id &&   <div className="actions gap-2 justify-content-center px-3 py-2" style={show === "hide" ? {display: "none"} : {display: "flex"}}>
                             <button className='btn btn-danger' onClick={() => handleDelete(doc.id)}>Delete</button>
                             <button className='btn btn-warning' onClick={() => handleShare(doc)}>Share</button>
+                            </div> }
                             </div>
+                            <p className='text-end mb-2 mt-2'>{formatTimestamp(doc.createdAt)}</p>
+                           
+                           
                         </div>
                     ))}
                 </div>

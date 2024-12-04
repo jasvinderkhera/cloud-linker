@@ -10,6 +10,7 @@ import linkedin from '../assets/images/linkedin.png'
 import loginPage from '../assets/images/loginPage.png'
 import mobileMenu from "../assets/images/mobileMenu.png"
 import user from "../assets/images/user.png"
+import more from "../assets/images/more.png"
 
 
 
@@ -25,5 +26,6 @@ export const images = {
     loginPage:loginPage,
     mobileMenu:mobileMenu,
     user:user,
+    more:more,
 
 }
