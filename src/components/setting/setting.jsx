@@ -1,9 +1,20 @@
-import React from 'react'
+import React, { useState, useEffect, useContext } from 'react';
+import { auth } from '../../firebase/firebase';
 import './setting.css'
 
 function Setting() {
+
+    const handleLogout = () => {
+        auth.signOut();
+      };
   return (
-    <div>Setting</div>
+    <div>
+        <h2>Setting</h2>
+
+        <div className="d-flex py-5 justify-content-center align-items-center">
+        <button onClick={handleLogout} className='btn btn-warning text-white '>Logout</button>
+        </div>
+    </div>
   )
 }
 
