@@ -1,6 +1,4 @@
-.loginHeader{
-    border-bottom: 2px solid black;
-}
+
 
 .logo img{
     height: 50px;
@@ -18,4 +16,22 @@
 .profileImg{
     height: 56px;
     width: 56px;
+}
+.menuItems:hover{
+    cursor: pointer;
+}
+
+.upload:hover{
+    cursor: pointer;
+}
+
+.upload img{
+    height: 24px;
+
+}
+
+
+@media screen and (max-width:768px){
+   
+    
 }

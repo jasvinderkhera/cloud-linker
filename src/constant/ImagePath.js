@@ -11,6 +11,8 @@ import loginPage from '../assets/images/loginPage.png'
 import mobileMenu from "../assets/images/mobileMenu.png"
 import user from "../assets/images/user.png"
 import more from "../assets/images/more.png"
+import search from "../assets/images/search.png"
+import upload from "../assets/images/upload.png"
 
 
 
@@ -27,5 +29,7 @@ export const images = {
     mobileMenu:mobileMenu,
     user:user,
     more:more,
-
+    search:search,
+    upload:upload,
+    
 }

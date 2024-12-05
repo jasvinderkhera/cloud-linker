@@ -6,10 +6,15 @@ import { ref, get } from 'firebase/database'; // Import Firebase Database method
 import UploadDoc from '../services/uploadDocs/uploadDoc';
 import ViewDocs from '../services/viewDocs/viewDocs';
 import { images } from '../../constant/ImagePath';
+import Setting from '../setting/setting';
+import Plans from '../plans/plans';
 
 function MainPage() {
   const [user] = useAuthState(auth);
   const [username, setUsername] = useState('');
+  const [active,setActive] = useState('home')
+
+  // console.log("active:", active)
 
   useEffect(() => {
     const fetchUsername = async () => {
@@ -34,32 +39,34 @@ function MainPage() {
   return (
     <div>
       <div className="loginHeader d-flex justify-content-between align-items-center container py-3">
-      <div className="logo">
+      <div className="logo" onClick={()=>setActive('home')}>
         <img src={images.logoNew} alt="" className='img-fluid' />
       </div>
-      <div className="menuItems d-flex gap-5">
-        <div className="menuItem border border-1 rounded-2 px-3 py-2">
+      <div className="menuItems d-none d-md-flex gap-5" >
+        <div className={active === 'home' ? "menuItem bg-primary text-white border border-1 rounded-2 px-3 py-2" : "menuItem border border-1 rounded-2 px-3 py-2"} onClick={()=>setActive('home')}>
           Home
         </div>
-        <div className="menuItem border border-1 rounded-2 px-3 py-2">
+        <div className={active === 'file' ? "menuItem bg-primary text-white border border-1 rounded-2 px-3 py-2" : "menuItem border border-1 rounded-2 px-3 py-2"} onClick={()=>setActive('file')}>
           File
         </div>
-        <div className="menuItem border border-1 rounded-2 px-3 py-2">
+        <div className={active === 'plan' ? "menuItem bg-primary text-white border border-1 rounded-2 px-3 py-2" : "menuItem border border-1 rounded-2 px-3 py-2"} onClick={()=>setActive('plan')}>
           Plan
         </div>
-        <div className="menuItem border border-1 rounded-2 px-3 py-2">
+        <div className={active === 'settings' ? "menuItem bg-primary text-white border border-1 rounded-2 px-3 py-2" : "menuItem border border-1 rounded-2 px-3 py-2"} onClick={()=>setActive('settings')}>
           Settings
         </div>
       </div>
       <div className="endMenu">
         <div className="profile rounded-circle border border-1">
           <img src={images.user} alt="" className='img-fluid' />
+          <div className='d-md-none d-block p-2' onClick={()=>setActive('upload')}></div>
         </div>
       </div>
       </div>
+      <hr  className='m-0 border-2 border-dark'/>
       <div className="container my-4">
         <div className="row">
-          <div className="col-md-3 mainPageContainer p-4 bgSkyBlue rounded-5">
+          <div className="col-md-3 mainPageContainer d-none d-md-block p-4 bgSkyBlue rounded-5">
             <div className="bg-white px-3 py-2 mb-5 text-center d-flex rounded-3 gap-3 align-items-center">
              <img src={images.user} alt="" className='img-fluid profileImg'/>
            <div>
@@ -67,15 +74,20 @@ function MainPage() {
            <p className='mb-2'> {user.email}</p>
            </div>
             </div>
-
-            <UploadDoc/>
-          </div>
-          <div className="col-md-9 mainPageContainer px-5 py-3">
-            <div className="inputBox">
-              <input type="text" placeholder='Search here' className='form-control rounded-2 py-2 px-3' />
-              <img src="" alt="" />
+            <div>
+              <div className="upload d-flex gap-3 bg-white py-2 border border-2 border-primary rounded-2 justify-content-center align-items-center" onClick={()=>setActive('upload')}>
+                <img src={images.upload} alt="" className='img-fluid'/>
+                <p className='text-primary mb-0 fw-bold'>Upload</p>
+              </div>
             </div>
-            <ViewDocs/>
+            
+          </div>
+          <div className="col-md-9 col-12 mainPageContainer px-md-5 px-3 py-3">
+           {active === "home" ? <ViewDocs/> : ""}
+           {active === "upload" ? <UploadDoc/> : ""}
+           {active === "settings" ? <Setting/> : ""}
+           {active === "plan" ? <Plans/> : ""}
+            
           </div>
         </div>
       </div>
