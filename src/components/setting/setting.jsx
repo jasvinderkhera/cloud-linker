@@ -14,7 +14,7 @@ function Setting() {
         <Profile/>
 
         <div className="d-flex py-5 justify-content-center align-items-center">
-        <button onClick={handleLogout} className='btn btn-warning text-white '>Logout</button>
+        <button onClick={handleLogout} className='btn btn-danger text-white '>Logout</button>
         </div>
     </div>
   )

@@ -125,25 +125,25 @@ function ViewDocs() {
 
     return (
         <div>
-            <h2>Documents</h2>
 
             <div className="viewDocsInputBox mb-3">
                 <img src={images.search} alt="" className='img-fluid searchIcon'/>
                 <input
                     type="text"
                     placeholder="Search here"
-                    className="form-control rounded-2 py-2 px-5"
+                    className="form-control rounded-4 py-2 px-5 border-2"
                     value={searchQuery}
                     onChange={handleSearch} // Call handleSearch on input change
-                />
+                    />
             </div>
+                    <h2>Documents</h2>
 
             {filteredDocs.length === 0 ? (
                 <p>No documents found.</p>
             ) : (
                 <div className="d-flex justify-content-center justify-content-md-start py-2 flex-wrap gap-4">
                     {filteredDocs.map((doc) => (
-                        <div className="docBox text-center bgSkyBlue rounded-3" key={doc.id}>
+                        <div className="docBox text-center columnColor rounded-3" key={doc.id}>
                             <div className="py-2 px-2 d-flex flex-column justify-content-center">
                                 <div className="actionBtn text-end mb-2 mx-2">
                                     <img
@@ -153,7 +153,7 @@ function ViewDocs() {
                                         onClick={() => setShow(show === doc.id ? null : doc.id)}
                                     />
                                     {show === doc.id && (
-                                        <div className="actions gap-3 d-flex flex-md-column bg-white rounded-2 justify-content-center px-3 py-2">
+                                        <div className="actions gap-3 d-flex flex-md-column rounded-2 justify-content-center px-2 py-2">
                                             <img src={images.edit} alt="" className="img-fluid" onClick={() => setRenameDocId(doc.id)} />
                                             <img src={images.deleted} alt="" className="img-fluid invert" onClick={() => handleDelete(doc.id)} />
                                             <img src={images.share} alt="" className="img-fluid" onClick={() => handleShare(doc)} />
@@ -167,7 +167,7 @@ function ViewDocs() {
                                     <img
                                         src={`data:image/png;base64,${doc.image}`}
                                         alt={doc.name}
-                                        style={{ maxWidth: '200px', maxHeight: '200px' }}
+                                        style={{ maxHeight: '200px' }}
                                         className="img-fluid"
                                     />
                                 </div>
@@ -175,7 +175,7 @@ function ViewDocs() {
 
                             <div className="d-flex mx-3 align-items-center justify-content-between">
                                 {renameDocId === doc.id ? (
-                                    <div className="renameInputBox d-flex">
+                                    <div className="renameInputBox d-flex align-items-center">
                                         <input
                                             type="text"
                                             value={newName}
@@ -184,8 +184,8 @@ function ViewDocs() {
                                             className="form-control"
                                         />
                                         <div>
-                                        <img src={images.check} alt="" className='img-fluid checkImg' onClick={() => handleRename(doc.id)}/>
-                                        <span onClick={() => setRenameDocId(null)} className='bg-white px-1 rounded-circle mt-2'>X</span>
+                                        <img src={images.check2} alt="" className='img-fluid checkImg' onClick={() => handleRename(doc.id)}/>
+                                        <img src={images.close} alt="" className='img-fluid checkImg' onClick={() => setRenameDocId(null)}/>
                                         </div>
                                     </div>
                                 ) : (

@@ -1,6 +1,6 @@
-.docBox img{
+.docBox .imgContainer img{
     height: 150px;
-    width: 150px;
+    min-width: 150px;
     object-fit: contain;
 }
 .imgContainer{
@@ -27,7 +27,8 @@
 .actions{
     position: absolute;
     top: 30px;
-    right: -20px;
+    right: -35px;
+    background-color: rgb(220, 220, 220);
 }
 
 .viewDocsInputBox{
@@ -38,10 +39,14 @@
 
 .searchIcon{
     position: absolute;
-    top:10px;
-    left: 10px;
-    height: 20px;
-    width: 20px;
+    top:14px;
+    left: 16px;
+    height: 16px;
+    width: 16px;
+}
+
+.renameInputBox input{
+    height: 44px;
 }
 
 .checkImg{
@@ -57,6 +62,10 @@
 
     .docBox{
         width: 90%;
+    }
+
+    .imgContainer{
+        width: 95%;
     }
     
 }

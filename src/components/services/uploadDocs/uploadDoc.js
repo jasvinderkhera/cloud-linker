@@ -62,14 +62,15 @@ function UploadDoc() {
 
     return (
        <div className="d-flex justify-content-center align-items-center py-5 my-5">
-         <form onSubmit={handleUpload}>
+         <form onSubmit={handleUpload} className='d-flex flex-column justify-content-center align-items-center'>
             <input 
                 type="file" 
                 accept="image/*" 
                 onChange={handleFileChange} 
                 required 
+                className='border border-3 rounded-2'
             />
-            <button type="submit">Upload Document</button>
+            <button type="submit" className='btn-primary btn mt-4 py-2'>Upload Document</button>
             {uploadProgress > 0 && <p>Upload Progress: {uploadProgress}%</p>}
             {error && <p style={{ color: 'red' }}>{error}</p>}
         </form>

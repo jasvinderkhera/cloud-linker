@@ -4,6 +4,7 @@
   --main-color:#1919DF;
   --text-secondary:#3D008C;
   --list-color: #2A0061;
+  --column-color: #BCE6FA;
 
 }
 
@@ -32,6 +33,10 @@ body {
 
 .btnColor{
 background-color: var(--main-color);
+}
+
+.columnColor{
+  background-color: var(--column-color);
 }
 
 

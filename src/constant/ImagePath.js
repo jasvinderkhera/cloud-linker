@@ -17,6 +17,8 @@ import edit from "../assets/images/edit.png"
 import deleted from "../assets/images/delete.png"
 import share from "../assets/images/share.png"
 import check from "../assets/images/check.png"
+import check2 from "../assets/images/checkImg.svg"
+import close from "../assets/images/close.svg"
 
 
 
@@ -39,5 +41,7 @@ export const images = {
     edit:edit,
     share:share,
     check:check,
+    check2:check2,
+    close:close,
     
 }
