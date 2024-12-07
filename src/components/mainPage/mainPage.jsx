@@ -13,8 +13,26 @@ function MainPage() {
   const [user] = useAuthState(auth);
   const [username, setUsername] = useState('');
   const [active,setActive] = useState('home')
+  const [profilePic, setProfilePic] = useState(null);
 
   // console.log("active:", active)
+
+
+  useEffect(() => {
+    // Fetch the profile picture from the database
+    const fetchProfilePic = async () => {
+        const user = auth.currentUser;
+        if (user) {
+            const userId = user.uid;
+            const profilePicRef = ref(realtimeDb, `users/${userId}/profilePicture`);
+            const snapshot = await get(profilePicRef);
+            if (snapshot.exists()) {
+                setProfilePic(snapshot.val());
+            }
+        }
+    };
+    fetchProfilePic();
+}, []);
 
   useEffect(() => {
     const fetchUsername = async () => {
@@ -57,8 +75,8 @@ function MainPage() {
         </div>
       </div>
       <div className="endMenu">
-        <div className="profile rounded-circle border border-1">
-          <img src={images.user} alt="" className='img-fluid' />
+        <div className="profile rounded-circle border border-1 overflow-hidden">
+          <img src={profilePic} alt="" className='img-fluid' />
           <div className='d-md-none d-block p-2' onClick={()=>setActive('upload')}></div>
         </div>
       </div>
@@ -67,8 +85,8 @@ function MainPage() {
       <div className="container my-4">
         <div className="row">
           <div className="col-md-3 mainPageContainer d-none d-md-block p-4 bgSkyBlue rounded-5">
-            <div className="bg-white px-3 py-2 mb-5 text-center d-flex rounded-3 gap-3 align-items-center">
-             <img src={images.user} alt="" className='img-fluid profileImg'/>
+            <div className="bg-white px-3 py-2 mb-5 text-center d-flex gap-3 align-items-center rounded-3">
+             <img src={profilePic} alt="" className='img-fluid profileImg rounded-circle'/>
            <div>
            <p className='mb-2 fw-bold'>Welcome, {username} </p>
            <p className='mb-2'> {user.email}</p>
@@ -87,6 +105,7 @@ function MainPage() {
            {active === "upload" ? <UploadDoc/> : ""}
            {active === "settings" ? <Setting/> : ""}
            {active === "plan" ? <Plans/> : ""}
+           
             
           </div>
         </div>

@@ -13,6 +13,10 @@ import user from "../assets/images/user.png"
 import more from "../assets/images/more.png"
 import search from "../assets/images/search.png"
 import upload from "../assets/images/upload.png"
+import edit from "../assets/images/edit.png"
+import deleted from "../assets/images/delete.png"
+import share from "../assets/images/share.png"
+import check from "../assets/images/check.png"
 
 
 
@@ -31,5 +35,9 @@ export const images = {
     more:more,
     search:search,
     upload:upload,
+    deleted:deleted,
+    edit:edit,
+    share:share,
+    check:check,
     
 }
