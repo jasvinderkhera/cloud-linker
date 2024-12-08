@@ -41,8 +41,9 @@
 
 .searchOverlay{
     position: fixed;
-    top: 100px;
+    top: 68px;
     z-index: 2;
+    width: 100%;
 }
 
 .searchOverlay input{
@@ -52,8 +53,8 @@
 
 .searchIcon{
     position: absolute;
-    top:14px;
-    left: 16px;
+    top:40px;
+    left: 40px;
     height: 16px;
     width: 16px;
 }

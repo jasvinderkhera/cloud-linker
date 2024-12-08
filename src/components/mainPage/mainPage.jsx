@@ -67,8 +67,8 @@ function MainPage() {
         <div className={active === 'home' ? "menuItem btnColor text-white border border-1 rounded-2 px-3 py-2" : "menuItem border border-1 rounded-2 px-3 py-2"} onClick={()=>setActive('home')}>
           Home
         </div>
-        <div className={active === 'files' ? "menuItem btnColor text-white border border-1 rounded-2 px-3 py-2" : "menuItem border border-1 rounded-2 px-3 py-2"} onClick={()=>setActive('files')}>
-          File
+        <div className={active === 'favourites' ? "menuItem btnColor text-white border border-1 rounded-2 px-3 py-2" : "menuItem border border-1 rounded-2 px-3 py-2"} onClick={()=>setActive('favourites')}>
+        Favourites
         </div>
         <div className={active === 'plan' ? "menuItem btnColor text-white border border-1 rounded-2 px-3 py-2" : "menuItem border border-1 rounded-2 px-3 py-2"} onClick={()=>setActive('plan')}>
           Plan
@@ -78,7 +78,7 @@ function MainPage() {
         </div>
       </div>
       <div className="endMenu">
-        <div className="profile d-md-none d-block rounded-circle border border-1 overflow-hidden" onClick={()=>setMobileMenu("show")}>
+        <div className="mobProfile d-md-none d-block rounded-circle border border-1 overflow-hidden" onClick={()=>setMobileMenu("show")}>
           <img src={profilePic} alt="" className='img-fluid' />
           
         </div>
@@ -92,8 +92,9 @@ function MainPage() {
      </div>
       <div className="mainContainer container my-4">
         <div className="row">
-          <div className="col-md-3 mainPageSideContainer d-none d-md-block p-4 bgSkyBlue rounded-5">
-            <div className="bg-white px-3 py-2 mb-5 d-flex gap-3 align-items-center rounded-3">
+          <div className="col-md-3 mainPageSideContainer d-none d-md-flex flex-column justify-content-between p-4 bgSkyBlue rounded-5">
+           <div className="top">
+           <div className="bg-white px-3 py-2 mb-5 d-flex gap-3 align-items-center rounded-3">
              <img src={profilePic} alt="" className='img-fluid profileImg rounded-circle'/>
            <div>
            <p className='mb-1 fw-bold'>Welcome, {username} </p>
@@ -101,9 +102,21 @@ function MainPage() {
            </div>
             </div>
             <div>
-              <div className="upload d-flex gap-3 bg-white py-3 border border-2 border-primary rounded-2 justify-content-center align-items-center" onClick={()=>setActive('upload')}>
+              <div className="upload d-flex gap-3 bg-white py-3 border border-2 border-primary rounded-3 justify-content-center align-items-center" onClick={()=>setActive('upload')}>
                 <img src={images.upload} alt="" className='img-fluid'/>
                 <p className='text-primary mb-0 fw-bold'>Upload</p>
+              </div>
+              <div className="upload mt-3 d-flex gap-3 bg-white py-3 border border-2 border-primary rounded-3 justify-content-center align-items-center" onClick={()=>setActive('favourites')}>
+                <img src={images.fvt} alt="" className='img-fluid'/>
+                <p className='text-primary mb-0 fw-bold'>Favourites</p>
+              </div>
+           </div>
+            </div>
+
+            <div className="bottom">
+
+            <div className="upload mt-3 d-flex gap-3 bg-white py-3 border border-2 border-primary rounded-3 justify-content-center align-items-center" onClick={()=>setActive('favourites')}>
+                <p className='text-primary mb-0 fw-bold'>Upgrade Your Plan</p>
               </div>
             </div>
             
@@ -113,7 +126,7 @@ function MainPage() {
            {active === "upload" ? <UploadDoc/> : ""}
            {active === "settings" ? <Setting/> : ""}
            {active === "plan" ? <Plans/> : ""}
-           {active === "files" ? <Files/> : ""}
+           {active === "favourites" ? <Files/> : ""}
            
             
           </div>
@@ -126,8 +139,8 @@ function MainPage() {
           <div className="menuItem text-white rounded-2 px-3 py-2 fs-5" onClick={()=>{setActive('home'); setMobileMenu('hide')}}>
           Home
         </div>
-        <div className="menuItem text-white rounded-2 px-3 py-2 fs-5" onClick={()=>{setActive('files'); setMobileMenu('hide')}}>
-          Files
+        <div className="menuItem text-white rounded-2 px-3 py-2 fs-5" onClick={()=>{setActive('favourites'); setMobileMenu('hide')}}>
+        Favourites
         </div>
         <div className="menuItem text-white rounded-2 px-3 py-2 fs-5" onClick={()=>{setActive('plan'); setMobileMenu('hide')}}>
           Plan

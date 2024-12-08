@@ -217,7 +217,7 @@ function Files() {
     };
 
     const favouriteDocs = filteredDocs.filter((doc) => doc.favourite);
-    const allDocs = filteredDocs;
+    const allDocs = filteredDocs.filter((doc) => !doc.favourite);
 
     if (loading) {
         return <p>Loading...</p>;
@@ -230,7 +230,7 @@ function Files() {
     return (
         <div>
             <div className="viewDocsInputBox mb-3">
-                <div className="searchOverlay mt-2 mt-md-0">
+                <div className="searchOverlay p-4 bg-white">
                     <img src={images.search} alt="" className="img-fluid searchIcon" />
                     <input
                         type="text"
@@ -244,7 +244,7 @@ function Files() {
 
             {/* Favourite Documents */}
             <div>
-                <h2 className="mt-4">Favourite Documents</h2>
+                <h2 className="mt-4">Favourites</h2>
                 {favouriteDocs.length === 0 ? (
                     <p>No favourite documents found.</p>
                 ) : (
@@ -254,12 +254,16 @@ function Files() {
                             <div className="py-2 px-2 d-flex flex-column justify-content-center">
                                
                                 <div className="actionBtn d-flex justify-content-between align-items-center mb-2 mx-2">
-                                <button
-                                    className={`btn ${doc.favourite ? 'btn-danger ' : 'btn-outline-secondary '}`}
+                                <div
+                                    
                                     onClick={() => handleToggleFavourite(doc.id, doc.favourite)}
                                 >
-                                    {<img src={images.heart} className="img-fluid"/>}
-                                </button>
+                                    {doc.favourite ? (
+    <img src={images.fvt} className="img-fluid" alt="Favorite" />
+  ) : (
+    <img src={images.unfvt} className="img-fluid" alt="Not Favorite" />
+  )}
+                                </div>
                                     <img
                                         src={images.more}
                                         alt=""
@@ -326,12 +330,16 @@ function Files() {
                                 <div className="py-2 px-2 d-flex flex-column justify-content-center">
                                    
                                     <div className="actionBtn d-flex justify-content-between align-items-center mb-2 mx-2">
-                                    <button
-                                        className={`btn ${doc.favourite ? 'btn-danger ' : 'btn-outline-secondary '}`}
+                                    <div
+                                        
                                         onClick={() => handleToggleFavourite(doc.id, doc.favourite)}
                                     >
-                                        {<img src={images.heart} className="img-fluid"/>}
-                                    </button>
+                                       {doc.favourite ? (
+    <img src={images.fvt} className="img-fluid" alt="Favorite" />
+  ) : (
+    <img src={images.unfvt} className="img-fluid" alt="Not Favorite" />
+  )}
+                                    </div>
                                         <img
                                             src={images.more}
                                             alt=""
@@ -399,13 +407,13 @@ function Files() {
             />
             <p className='fw-bold py-2'>{selectedDoc.name}</p>
             <div className="d-flex justify-content-around mt-3">
-              <Button onClick={() => handleRename(selectedDoc.id)}>
+              <Button className='btn-success' onClick={() => handleRename(selectedDoc.id)}>
                 Rename
               </Button>
               <Button className='btn btn-danger' onClick={() => handleDelete(selectedDoc.id)}>
                 Delete
               </Button>
-              <Button className='btn btn-info' onClick={() => handleToggleFavourite(selectedDoc.id)}>
+              <Button className='btn btn-primary' onClick={() => handleToggleFavourite(selectedDoc.id)}>
                 Favourite
               </Button>
               <Button className='btn-warning' onClick={() => handleShare(selectedDoc)}>Share</Button>

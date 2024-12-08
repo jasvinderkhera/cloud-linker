@@ -20,6 +20,8 @@ import check from "../assets/images/check.png"
 import check2 from "../assets/images/checkImg.svg"
 import close from "../assets/images/close.svg"
 import heart from "../assets/images/heart.png"
+import fvt from "../assets/images/fvt.svg"
+import unfvt from "../assets/images/unfvt.svg"
 
 
 
@@ -45,5 +47,7 @@ export const images = {
     check2:check2,
     close:close,
     heart:heart,
+    fvt:fvt,
+    unfvt:unfvt,
     
 }
