@@ -131,13 +131,58 @@ function Files() {
     };
 
 
-    // Share
+      // Share
 
-    const handleShare = (doc) => {
-        const userId = auth.currentUser.uid;
-        const shareableLink = `https://${process.env.REACT_APP_PROJECT_ID}.firebaseio.com/users/${userId}/documents/${doc.id}.json`;
-        alert(`Share this link to access the document: ${shareableLink}`);
+      const handleShare = (doc) => {
+        if (!doc.image) {
+            alert("Invalid or missing image data.");
+            return;
+        }
+    
+        try {
+            const blob = base64ToBlob(doc.image);
+            const file = new File([blob], `${doc.name}.png`, { type: "image/png" });
+    
+            if (navigator.share) {
+                navigator.share({
+                    title: doc.name,
+                    text: `Check out this document: ${doc.name}`,
+                    files: [file],
+                })
+                    .then(() => console.log("Document shared successfully"))
+                    .catch((error) => console.error("Error sharing document:", error));
+            } else {
+                alert("Sharing is not supported in your browser.");
+            }
+        } catch (error) {
+            console.error("Error sharing document:", error.message);
+            alert("Failed to share the document.");
+        }
     };
+
+    // Base to blob
+
+    const base64ToBlob = (base64) => {
+        // Add prefix if missing
+        if (!base64.startsWith("data:image")) {
+            base64 = `data:image/png;base64,${base64}`;
+        }
+    
+        // Split into prefix and actual Base64 data
+        const [prefix, base64Data] = base64.split(",");
+        if (!base64Data) {
+            throw new Error("Invalid Base64 string");
+        }
+    
+        // Decode Base64 and create a Blob
+        const binary = atob(base64Data);
+        const array = [];
+        for (let i = 0; i < binary.length; i++) {
+            array.push(binary.charCodeAt(i));
+        }
+        return new Blob([new Uint8Array(array)], { type: prefix.split(":")[1].split(";")[0] });
+    };
+    
 
     const handleToggleFavourite = (docId, isFavourite) => {
         const docRef = ref(realtimeDb, `users/${auth.currentUser.uid}/documents/${docId}`);
@@ -205,7 +250,7 @@ function Files() {
                 ) : (
                     <div className="d-flex justify-content-center justify-content-md-start py-2 flex-wrap gap-4">
                     {favouriteDocs.map((doc) => (
-                        <div className="docBox text-center columnColor rounded-3" key={doc.id} onClick={() => handleOpenModal(doc)}>
+                        <div className="docBox text-center columnColor rounded-3" key={doc.id} >
                             <div className="py-2 px-2 d-flex flex-column justify-content-center">
                                
                                 <div className="actionBtn d-flex justify-content-between align-items-center mb-2 mx-2">
@@ -238,6 +283,7 @@ function Files() {
                                         alt={doc.name}
                                         style={{ maxHeight: '200px' }}
                                         className="img-fluid"
+                                        onClick={() => handleOpenModal(doc)}
                                     />
                                 </div>
                             </div>
@@ -276,7 +322,7 @@ function Files() {
                 ) : (
                     <div className="d-flex justify-content-center justify-content-md-start py-2 flex-wrap gap-4">
                         {allDocs.map((doc) => (
-                            <div className="docBox text-center columnColor rounded-3" key={doc.id} onClick={() => handleOpenModal(doc)}>
+                            <div className="docBox text-center columnColor rounded-3" key={doc.id} >
                                 <div className="py-2 px-2 d-flex flex-column justify-content-center">
                                    
                                     <div className="actionBtn d-flex justify-content-between align-items-center mb-2 mx-2">
@@ -309,6 +355,7 @@ function Files() {
                                             alt={doc.name}
                                             style={{ maxHeight: '200px' }}
                                             className="img-fluid"
+                                            onClick={() => handleOpenModal(doc)}
                                         />
                                     </div>
                                 </div>
