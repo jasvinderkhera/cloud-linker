@@ -8,12 +8,14 @@ import ViewDocs from '../services/viewDocs/viewDocs';
 import { images } from '../../constant/ImagePath';
 import Setting from '../setting/setting';
 import Plans from '../plans/plans';
+import Files from '../services/files/files';
 
 function MainPage() {
   const [user] = useAuthState(auth);
   const [username, setUsername] = useState('');
   const [active,setActive] = useState('home')
   const [profilePic, setProfilePic] = useState(null);
+  const [mobileMenu, setMobileMenu] = useState('hide')
 
   // console.log("active:", active)
 
@@ -56,7 +58,8 @@ function MainPage() {
 
   return (
     <div>
-      <div className="loginHeader d-flex justify-content-between align-items-center container py-1">
+     <div className="container-fluid outerHeader bg-white">
+     <div className="loginHeader d-flex justify-content-between align-items-center container py-2">
       <div className="logo" onClick={()=>setActive('home')}>
         <img src={images.logoNew} alt="" className='img-fluid' />
       </div>
@@ -64,7 +67,7 @@ function MainPage() {
         <div className={active === 'home' ? "menuItem btnColor text-white border border-1 rounded-2 px-3 py-2" : "menuItem border border-1 rounded-2 px-3 py-2"} onClick={()=>setActive('home')}>
           Home
         </div>
-        <div className={active === 'file' ? "menuItem btnColor text-white border border-1 rounded-2 px-3 py-2" : "menuItem border border-1 rounded-2 px-3 py-2"} onClick={()=>setActive('file')}>
+        <div className={active === 'files' ? "menuItem btnColor text-white border border-1 rounded-2 px-3 py-2" : "menuItem border border-1 rounded-2 px-3 py-2"} onClick={()=>setActive('files')}>
           File
         </div>
         <div className={active === 'plan' ? "menuItem btnColor text-white border border-1 rounded-2 px-3 py-2" : "menuItem border border-1 rounded-2 px-3 py-2"} onClick={()=>setActive('plan')}>
@@ -75,16 +78,21 @@ function MainPage() {
         </div>
       </div>
       <div className="endMenu">
-        <div className="profile rounded-circle border border-1 overflow-hidden">
+        <div className="profile d-md-none d-block rounded-circle border border-1 overflow-hidden" onClick={()=>setMobileMenu("show")}>
           <img src={profilePic} alt="" className='img-fluid' />
-          <div className='d-md-none d-block p-2' onClick={()=>setActive('upload')}></div>
+          
+        </div>
+        <div className="help d-md-flex d-none gap-2 border border-1 rounded-2 px-3 py-2">
+        <div className="rounded-circle border border-black border-2 rounded-circle px-2"> ?</div>
+        Help & Support
         </div>
       </div>
       </div>
       <hr  className='m-0 border-2 border-dark'/>
-      <div className="container my-4">
+     </div>
+      <div className="mainContainer container my-4">
         <div className="row">
-          <div className="col-md-3 mainPageContainer d-none d-md-block p-4 bgSkyBlue rounded-5">
+          <div className="col-md-3 mainPageSideContainer d-none d-md-block p-4 bgSkyBlue rounded-5">
             <div className="bg-white px-3 py-2 mb-5 d-flex gap-3 align-items-center rounded-3">
              <img src={profilePic} alt="" className='img-fluid profileImg rounded-circle'/>
            <div>
@@ -100,16 +108,34 @@ function MainPage() {
             </div>
             
           </div>
-          <div className="col-md-9 col-12 mainPageContainer px-md-5 px-3 py-3">
+          <div className="col-md-9 col-12 mainPageContainer mt-4 mt-md-0 px-md-5 px-3 py-3">
            {active === "home" ? <ViewDocs/> : ""}
            {active === "upload" ? <UploadDoc/> : ""}
            {active === "settings" ? <Setting/> : ""}
            {active === "plan" ? <Plans/> : ""}
+           {active === "files" ? <Files/> : ""}
            
             
           </div>
         </div>
       </div>
+      <div className='mobileMenu p-2' style={mobileMenu === "hide" ? {display:"none"} : {display: "block"}}>
+          <div className="menuItem text-end text-white rounded-2 px-3 py-2 fs-5" onClick={()=>{setMobileMenu('hide')}}>
+          X
+        </div>
+          <div className="menuItem text-white rounded-2 px-3 py-2 fs-5" onClick={()=>{setActive('home'); setMobileMenu('hide')}}>
+          Home
+        </div>
+        <div className="menuItem text-white rounded-2 px-3 py-2 fs-5" onClick={()=>{setActive('files'); setMobileMenu('hide')}}>
+          Files
+        </div>
+        <div className="menuItem text-white rounded-2 px-3 py-2 fs-5" onClick={()=>{setActive('plan'); setMobileMenu('hide')}}>
+          Plan
+        </div>
+        <div className="menuItem text-white rounded-2 px-3 py-2 fs-5" onClick={()=>{setActive('settings'); setMobileMenu('hide')}}>
+          Settings
+        </div>
+          </div>
     </div>
   )
 }

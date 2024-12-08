@@ -4,6 +4,8 @@ import { ref, onValue, remove, update } from 'firebase/database';
 import { realtimeDb } from '../../../firebase/firebase';
 import { auth } from '../../../firebase/firebase'; 
 import { images } from '../../../constant/ImagePath';
+import Modal from "react-bootstrap/Modal";
+import Button from "react-bootstrap/Button";
 
 function ViewDocs() {
     const [documents, setDocuments] = useState([]);
@@ -14,6 +16,8 @@ function ViewDocs() {
     const [searchQuery, setSearchQuery] = useState(''); // State for search query
     const [renameDocId, setRenameDocId] = useState(null);
     const [newName, setNewName] = useState('');
+    const [modalVisible, setModalVisible] = useState(false);
+    const [selectedDoc, setSelectedDoc] = useState(null);
 
 
     useEffect(() => {
@@ -47,6 +51,9 @@ function ViewDocs() {
         });
     }, []);
 
+
+    // Rename
+
     const handleRename = (docId) => {
         if (!newName.trim()) {
             alert('Please enter a valid name.');
@@ -77,10 +84,54 @@ function ViewDocs() {
     };
 
 
+    // Favourties
+
+
+    const handleToggleFavourite = (docId, isFavourite) => {
+        const docRef = ref(realtimeDb, `users/${auth.currentUser.uid}/documents/${docId}`);
+
+        update(docRef, { favourite: !isFavourite })
+            .then(() => {
+                setDocuments(prevDocs =>
+                    prevDocs.map(doc =>
+                        doc.id === docId ? { ...doc, favourite: !isFavourite } : doc
+                    )
+                );
+                setFilteredDocs(prevDocs =>
+                    prevDocs.map(doc =>
+                        doc.id === docId ? { ...doc, favourite: !isFavourite } : doc
+                    )
+                );
+            })
+            .catch((error) => {
+                console.error('Error updating favourite status:', error);
+                alert('Error updating favourite status.');
+            });
+    };
+
+// Convert time to IST
+
     const formatTimestamp = (timestamp) => {
         const date = new Date(timestamp);
         return date.toLocaleString();
     };
+
+
+    // Modal
+
+    const handleOpenModal = (doc) => {
+        setSelectedDoc(doc);
+        setModalVisible(true);
+      };
+    
+      const handleCloseModal = () => {
+        setModalVisible(false);
+        setSelectedDoc(null);
+      };
+
+
+
+    // Delete
 
     const handleDelete = (docId) => {
         const docRef = ref(realtimeDb, `users/${auth.currentUser.uid}/documents/${docId}`);
@@ -98,11 +149,17 @@ function ViewDocs() {
             });
     };
 
+
+    // Share
+
     const handleShare = (doc) => {
         const userId = auth.currentUser.uid;
         const shareableLink = `https://${process.env.REACT_APP_PROJECT_ID}.firebaseio.com/users/${userId}/documents/${doc.id}.json`;
         alert(`Share this link to access the document: ${shareableLink}`);
     };
+
+
+    // Search
 
     const handleSearch = (e) => {
         const query = e.target.value.toLowerCase();
@@ -127,7 +184,8 @@ function ViewDocs() {
         <div>
 
             <div className="viewDocsInputBox mb-3">
-                <img src={images.search} alt="" className='img-fluid searchIcon'/>
+               <div className="searchOverlay mt-2 mt-md-0">
+               <img src={images.search} alt="" className='img-fluid searchIcon'/>
                 <input
                     type="text"
                     placeholder="Search here"
@@ -135,17 +193,25 @@ function ViewDocs() {
                     value={searchQuery}
                     onChange={handleSearch} // Call handleSearch on input change
                     />
+               </div>
             </div>
-                    <h2>Documents</h2>
+                    <h2 className='mt-4'>Documents</h2>
 
             {filteredDocs.length === 0 ? (
                 <p>No documents found.</p>
             ) : (
                 <div className="d-flex justify-content-center justify-content-md-start py-2 flex-wrap gap-4">
                     {filteredDocs.map((doc) => (
-                        <div className="docBox text-center columnColor rounded-3" key={doc.id}>
+                        <div className="docBox text-center columnColor rounded-3" key={doc.id} onClick={() => handleOpenModal(doc)}>
                             <div className="py-2 px-2 d-flex flex-column justify-content-center">
-                                <div className="actionBtn text-end mb-2 mx-2">
+                               
+                                <div className="actionBtn d-flex justify-content-between align-items-center mb-2 mx-2">
+                                <button
+                                    className={`btn ${doc.favourite ? 'btn-danger ' : 'btn-outline-secondary '}`}
+                                    onClick={() => handleToggleFavourite(doc.id, doc.favourite)}
+                                >
+                                    {<img src={images.heart} className="img-fluid"/>}
+                                </button>
                                     <img
                                         src={images.more}
                                         alt=""
@@ -154,9 +220,9 @@ function ViewDocs() {
                                     />
                                     {show === doc.id && (
                                         <div className="actions gap-3 d-flex flex-md-column rounded-2 justify-content-center px-2 py-2">
-                                            <img src={images.edit} alt="" className="img-fluid" onClick={() => setRenameDocId(doc.id)} />
-                                            <img src={images.deleted} alt="" className="img-fluid invert" onClick={() => handleDelete(doc.id)} />
-                                            <img src={images.share} alt="" className="img-fluid" onClick={() => handleShare(doc)} />
+                                            <div className='d-flex gap-2' onClick={() => setRenameDocId(doc.id)} ><img src={images.edit} alt="" className="img-fluid" /><span className='px-1'>Edit</span></div>
+                                            <div className='d-flex gap-2' onClick={() => handleDelete(doc.id)}><img src={images.deleted} alt="" className="img-fluid invert"  /><span className='px-1'>Delete</span></div>
+                                            <div className='d-flex gap-2' onClick={() => handleShare(doc)}><img src={images.share} alt="" className="img-fluid"  /><span className='px-1'>Share</span></div>
                                           
                                             
                                         </div>
@@ -197,6 +263,31 @@ function ViewDocs() {
                     ))}
                 </div>
             )}
+
+
+{selectedDoc && (
+        <Modal show={modalVisible} onHide={handleCloseModal} centered>
+          <Modal.Body>
+            <img
+              src={`data:image/png;base64,${selectedDoc.image}`}
+              alt={selectedDoc.name}
+              className="img-fluid w-100"
+            />
+            <div className="d-flex justify-content-around mt-3">
+              <Button onClick={() => handleRename(selectedDoc.id)}>
+                Rename
+              </Button>
+              <Button className='btn btn-danger' onClick={() => handleDelete(selectedDoc.id)}>
+                Delete
+              </Button>
+              <Button className='btn btn-info' onClick={() => handleToggleFavourite(selectedDoc.id)}>
+                Favourite
+              </Button>
+              <Button className='btn-warning' onClick={() => handleShare(selectedDoc)}>Share</Button>
+            </div>
+          </Modal.Body>
+        </Modal>
+      )}
         </div>
     );
 }
