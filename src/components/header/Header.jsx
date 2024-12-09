@@ -33,7 +33,7 @@ function Header() {
         
     </div>
     </div>
-    <div className="mobileMenu d-flex justify-content-between d-md-none">
+    <div className="homepage_mobileMenu d-flex justify-content-between d-md-none">
         <img src={images.logoNew} alt="" className='img-fluid mobileLogo' />
     <img src={images.mobileMenu} alt="" className='img-fluid menuLogo' onClick={toggleMenu}/>
 </div>
