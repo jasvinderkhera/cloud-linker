@@ -9,6 +9,8 @@ import { images } from '../../constant/ImagePath';
 import Setting from '../setting/setting';
 import Plans from '../plans/plans';
 import Files from '../services/files/files';
+import Modal from "react-bootstrap/Modal";
+import Button from "react-bootstrap/Button";
 
 function MainPage() {
   const [user] = useAuthState(auth);
@@ -16,6 +18,7 @@ function MainPage() {
   const [active,setActive] = useState('home')
   const [profilePic, setProfilePic] = useState(null);
   const [mobileMenu, setMobileMenu] = useState('hide')
+  const [modalVisible, setModalVisible] = useState(false);
 
   // console.log("active:", active)
 
@@ -35,6 +38,16 @@ function MainPage() {
     };
     fetchProfilePic();
 }, []);
+
+  // Modal
+
+  const handleOpenModal = () => {
+    setModalVisible(true);
+  };
+
+  const handleCloseModal = () => {
+    setModalVisible(false);
+  };
 
   useEffect(() => {
     const fetchUsername = async () => {
@@ -94,19 +107,19 @@ function MainPage() {
         <div className="row">
           <div className="col-md-3 mainPageSideContainer d-none d-md-flex flex-column justify-content-between p-4 bgSkyBlue rounded-5">
            <div className="top">
-           <div className="bg-white px-3 py-2 mb-5 d-flex gap-3 align-items-center rounded-3">
-             <img src={profilePic} alt="" className='img-fluid profileImg rounded-circle'/>
+           <div className="bg-white userDetails px-3 py-2 mb-5 d-flex gap-3 align-items-center rounded-3">
+             <img src={profilePic} alt="" className='img-fluid profileImg rounded-circle' onClick={()=>setActive('settings')}/>
            <div>
            <p className='mb-1 fw-bold'>Welcome, {username} </p>
            <p className='mb-2'> {user.email}</p>
            </div>
             </div>
             <div>
-              <div className="upload d-flex gap-3 bg-white py-3 border border-2 border-primary rounded-3 justify-content-center align-items-center" onClick={()=>setActive('upload')}>
+              <div className="upload d-flex gap-3 bg-white py-3 border border-2 border-primary rounded-3 justify-content-start ps-3 align-items-center" onClick={()=>setModalVisible(true)}>
                 <img src={images.upload} alt="" className='img-fluid'/>
                 <p className='text-primary mb-0 fw-bold'>Upload</p>
               </div>
-              <div className="upload mt-3 d-flex gap-3 bg-white py-3 border border-2 border-primary rounded-3 justify-content-center align-items-center" onClick={()=>setActive('favourites')}>
+              <div className="upload mt-3 d-flex gap-3 bg-white py-3 border border-2 border-primary rounded-3 justify-content-start ps-3 align-items-center" onClick={()=>setActive('favourites')}>
                 <img src={images.fvt} alt="" className='img-fluid'/>
                 <p className='text-primary mb-0 fw-bold'>Favourites</p>
               </div>
@@ -114,8 +127,11 @@ function MainPage() {
             </div>
 
             <div className="bottom">
+              <p className="">
+                Secure and store your documents in a safe and anytime accessible place
+              </p>
 
-            <div className="upload mt-3 d-flex gap-3 bg-white py-3 border border-2 border-primary rounded-3 justify-content-center align-items-center" onClick={()=>setActive('favourites')}>
+            <div className="upload mt-3 d-flex gap-3 bg-white py-3 border border-2 border-primary rounded-3 justify-content-center align-items-center" onClick={()=>setActive('plan')}>
                 <p className='text-primary mb-0 fw-bold'>Upgrade Your Plan</p>
               </div>
             </div>
@@ -149,6 +165,12 @@ function MainPage() {
           Settings
         </div>
           </div>
+
+          <Modal show={modalVisible} onHide={handleCloseModal} centered>
+          <Modal.Body>
+          <UploadDoc/>
+          </Modal.Body>
+        </Modal>
     </div>
   )
 }

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ref, set } from 'firebase/database';
 import { auth, realtimeDb } from '../../../firebase/firebase'; // Import auth and realtimeDb
+import { images } from '../../../constant/ImagePath';
 
 function UploadDoc() {
     const [file, setFile] = useState(null);
@@ -61,7 +62,8 @@ function UploadDoc() {
     };
 
     return (
-       <div className="d-flex justify-content-center align-items-center py-5 my-5">
+       <div className="d-flex flex-column justify-content-center align-items-center py-5 my-5">
+        <img src={images.upload} alt="" className='mb-4'/>
          <form onSubmit={handleUpload} className='d-flex flex-column justify-content-center align-items-center'>
             <input 
                 type="file" 

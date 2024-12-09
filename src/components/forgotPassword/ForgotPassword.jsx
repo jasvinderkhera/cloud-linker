@@ -1,26 +1,31 @@
 import React, { useState } from "react";
-import "./login.css";
-import { images } from "../../constant/ImagePath";
+import "./ForgotPassword.css";
+import { sendPasswordResetEmail } from "firebase/auth";
+import {auth} from '../../firebase/firebase'
 import { Link } from "react-router-dom";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../firebase/firebase";
+import { images } from "../../constant/ImagePath";
 
-function Login() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+function ForgotPassword() {
+  const [resetEmail, setResetEmail] = useState("");
 
-  const handleLogin = async (e) => {
-    e.preventDefault();
+  const handleForgotPassword = async () => {
     try {
-      await signInWithEmailAndPassword(auth, email, password);
-      alert("Logged in successfully!");
+      await sendPasswordResetEmail(auth, resetEmail);
+      alert("Password reset email sent! Check your inbox.");
     } catch (error) {
-      console.error("Login failed:", error.message);
+      alert(error.message);
     }
   };
 
+
   return (
-    <div>
+
+    <div className="forgotBtn mb-3 text-right cursor-pointer">
+   
+  
+
+
+     <div>
       <div className="container">
         <div className="Loginlogo py-2 text-center text-md-start">
           <img src={images.logoNew} alt="" className="img-fluid" />
@@ -32,40 +37,29 @@ function Login() {
           <div className="col-md-6 my-md-1 my-5 d-flex justify-content-center align-items-center">
             <div>
               <h2 className="h1 mainBlue mb-4 text-center">
-                Welcome to Cloud Linker!
+                Don't worry reset your password 
               </h2>
               <p className="text-center fs-5 mb-4">
                 Upload your documents in a safe and private space
               </p>
               <form action="" className="loginForm">
-                <input
-                  type="email"
-                  placeholder="Email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="form-control mb-4 py-2 px-4"
-                  required
-                />
-                <input
-                  type="password"
-                  placeholder="Password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  className="form-control mb-4 py-2 px-4"
-                  required
-                />
+              <input
+         type="email"
+         placeholder="Enter your email"
+         value={resetEmail}
+         onChange={(e) => setResetEmail(e.target.value)}
+         className='form-control px-4 rounded-full mb-8 loginInput'
+       />
               </form>
-              <Link to="/forgot-password" className="text-decoration-none text-start">
-                Forgot Password?
-              </Link>
+             
 
               <p className="text-center">
                 {" "}
                 <button
                   className="btn px-5 py-2 mt-3 btn-primary d-inline-block"
-                  onClick={handleLogin}
+                  onClick={handleForgotPassword} 
                 >
-                  Login
+                  Reset Password
                 </button>
               </p>
               <p className="text-center d-flex justify-content-center gap-2">
@@ -80,7 +74,8 @@ function Login() {
         </div>
       </div>
     </div>
+     </div>
   );
 }
 
-export default Login;
+export default ForgotPassword;

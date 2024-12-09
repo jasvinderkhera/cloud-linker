@@ -76,12 +76,12 @@ function Profile() {
                         <div className="placeholder-pic">No Profile Picture</div>
                     )}
                 </div>
-                <div className="upload-section">
+                <div className="upload-section w-50 m-auto">
                     <input
                         type="file"
                         accept="image/*"
                         onChange={handleImageChange}
-                        className="form-control"
+                        className="form-control my-3"
                     />
                     <button
                         className="btn btn-primary mt-2"

@@ -232,7 +232,7 @@ function ViewDocs() {
         <div>
 
             <div className="viewDocsInputBox">
-               <div className="searchOverlay p-4 bg-white">
+               <div className="searchOverlay py-4 ps-2 pe-4 bg-white">
                <img src={images.search} alt="" className='img-fluid searchIcon'/>
                 <input
                     type="text"

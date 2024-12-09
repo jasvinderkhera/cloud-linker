@@ -85,9 +85,9 @@ function Register() {
                 className="form-control mb-4 p-2"
                 required
               />
-              <a href="" className="text-decoration-none">
+              <Link to="/forgot-password" className="text-decoration-none">
                 Forgot Password?
-              </a>
+              </Link>
 
               <p className="text-center">
                 {" "}
