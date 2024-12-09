@@ -53,7 +53,7 @@
 
 .searchIcon{
     position: absolute;
-    top:38px;
+    top:30px;
     left: 35px;
     height: 16px;
     width: 16px;
@@ -88,7 +88,7 @@
     }
 
     .searchOverlay input{
-        width: 100%;
+        width: 328px;
     }
     
     

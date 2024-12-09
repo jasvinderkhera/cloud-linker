@@ -65,8 +65,25 @@
 
 }
 
+          
+.mobileNavbar{
+    position: fixed;
+    bottom: 0;
+    background-color: white;
+    width: 100%;
+    margin: auto;
+}
+
+.mobNav{
+    width: 328px;
+    margin: auto;
+}
+
 
 @media screen and (max-width:768px){
 
+    .mainContainer{
+        margin-top: 75px !important;
+    }
     
 }

@@ -22,6 +22,17 @@ import close from "../assets/images/close.svg"
 import heart from "../assets/images/heart.png"
 import fvt from "../assets/images/fvt.svg"
 import unfvt from "../assets/images/unfvt.svg"
+import plans from '../assets/images/plans.svg'
+import plansActive from '../assets/images/plansActive.svg'
+import setting from '../assets/images/setting.svg'
+import settingActive from '../assets/images/settingActive.svg'
+import home from "../assets/images/home.svg"
+import homeActive from "../assets/images/homeActive.svg"
+import mobFvt from "../assets/images/mobFvt.svg"
+import mobFvtActive from "../assets/images/mobFvtActive.svg"
+import mobupld from "../assets/images/mobupld.svg"
+import mobupldActive from "../assets/images/mobupldActive.svg"
+import mobLogo from "../assets/images/mobLogo.svg"
 
 
 
@@ -49,5 +60,16 @@ export const images = {
     heart:heart,
     fvt:fvt,
     unfvt:unfvt,
+    plans:plans,
+    plansActive:plansActive,
+    setting:setting,
+    settingActive:settingActive,
+    home:home,
+    homeActive:homeActive,
+    mobFvtActive:mobFvtActive,
+    mobFvt:mobFvt,
+    mobupld:mobupld,
+    mobupldActive:mobupldActive,
+    mobLogo:mobLogo,
     
 }

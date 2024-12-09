@@ -74,7 +74,8 @@ function MainPage() {
      <div className="container-fluid outerHeader bg-white">
      <div className="loginHeader d-flex justify-content-between align-items-center container py-2">
       <div className="logo" onClick={()=>setActive('home')}>
-        <img src={images.logoNew} alt="" className='img-fluid' />
+        <img src={images.logoNew} alt="" className='img-fluid d-none d-md-block' />
+        <img src={images.mobLogo} alt="" className='img-fluid d-md-none' />
       </div>
       <div className="menuItems d-none d-md-flex gap-5" >
         <div className={active === 'home' ? "menuItem btnColor text-white border border-1 rounded-2 px-3 py-2" : "menuItem border border-1 rounded-2 px-3 py-2"} onClick={()=>setActive('home')}>
@@ -164,6 +165,26 @@ function MainPage() {
         <div className="menuItem text-white rounded-2 px-3 py-2 fs-5" onClick={()=>{setActive('settings'); setMobileMenu('hide')}}>
           Settings
         </div>
+          </div>
+
+          <div className="mobileNavbar px-4 py-3 d-block d-md-none">
+            <div className="mobNav d-flex justify-content-between">
+                <div className="mobNavItem" onClick={()=>setActive('home')}>
+                {active === 'home' ? <img src={images.homeActive} className='img-fluid' alt="" /> : <img src={images.home} className='img-fluid' alt="" /> }
+                </div>
+                <div className="mobNavItem" onClick={()=>setActive('favourites')}>
+                {active === 'favourites' ? <img src={images.mobFvtActive} className='img-fluid' alt="" /> : <img src={images.mobFvt} className='img-fluid' alt="" /> }
+                </div>
+                <div className="mobNavItem" onClick={()=>{setActive('upload') ; setModalVisible(true)}}>
+                {active === 'upload' ? <img src={images.mobupldActive} className='img-fluid' alt="" /> : <img src={images.mobupld} className='img-fluid' alt="" /> }
+                </div>
+                <div className="mobNavItem" onClick={()=>setActive('plan')}>
+                {active === 'plan' ? <img src={images.plansActive} className='img-fluid' alt="" /> : <img src={images.plans} className='img-fluid' alt="" /> }
+                </div>
+                <div className="mobNavItem" onClick={()=>setActive('settings')}>
+                {active === 'settings' ? <img src={images.settingActive} className='img-fluid' alt="" /> : <img src={images.setting} className='img-fluid' alt="" /> }
+                </div>
+            </div>
           </div>
 
           <Modal show={modalVisible} onHide={handleCloseModal} centered>
