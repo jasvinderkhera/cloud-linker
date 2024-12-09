@@ -1,9 +1,11 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { auth } from '../../firebase/firebase';
+import React from 'react';
+import { auth } from '../../firebase/firebase'; // Your Firebase auth instance
 import './setting.css'
 import Profile from '../profile/Profile';
 
 function Setting() {
+
+
 
     const handleLogout = () => {
         auth.signOut();

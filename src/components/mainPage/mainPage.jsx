@@ -92,7 +92,7 @@ function MainPage() {
         </div>
       </div>
       <div className="endMenu">
-        <div className="mobProfile d-md-none d-block rounded-circle border border-1 overflow-hidden" onClick={()=>setMobileMenu("show")}>
+        <div className="mobProfile d-md-none d-block rounded-circle border border-1 overflow-hidden" onClick={()=>setActive("settings")}>
           <img src={profilePic} alt="" className='img-fluid' />
           
         </div>
@@ -149,23 +149,6 @@ function MainPage() {
           </div>
         </div>
       </div>
-      <div className='mobileMenu p-2' style={mobileMenu === "hide" ? {display:"none"} : {display: "block"}}>
-          <div className="menuItem text-end text-white rounded-2 px-3 py-2 fs-5" onClick={()=>{setMobileMenu('hide')}}>
-          X
-        </div>
-          <div className="menuItem text-white rounded-2 px-3 py-2 fs-5" onClick={()=>{setActive('home'); setMobileMenu('hide')}}>
-          Home
-        </div>
-        <div className="menuItem text-white rounded-2 px-3 py-2 fs-5" onClick={()=>{setActive('favourites'); setMobileMenu('hide')}}>
-        Favourites
-        </div>
-        <div className="menuItem text-white rounded-2 px-3 py-2 fs-5" onClick={()=>{setActive('plan'); setMobileMenu('hide')}}>
-          Plan
-        </div>
-        <div className="menuItem text-white rounded-2 px-3 py-2 fs-5" onClick={()=>{setActive('settings'); setMobileMenu('hide')}}>
-          Settings
-        </div>
-          </div>
 
           <div className="mobileNavbar px-4 py-3 d-block d-md-none">
             <div className="mobNav d-flex justify-content-between">
@@ -175,8 +158,8 @@ function MainPage() {
                 <div className="mobNavItem" onClick={()=>setActive('favourites')}>
                 {active === 'favourites' ? <img src={images.mobFvtActive} className='img-fluid' alt="" /> : <img src={images.mobFvt} className='img-fluid' alt="" /> }
                 </div>
-                <div className="mobNavItem" onClick={()=>{setActive('upload') ; setModalVisible(true)}}>
-                {active === 'upload' ? <img src={images.mobupldActive} className='img-fluid' alt="" /> : <img src={images.mobupld} className='img-fluid' alt="" /> }
+                <div className="mobNavItem" onClick={()=>setModalVisible(true)}>
+                <img src={images.mobupldActive} className='img-fluid' alt="" />
                 </div>
                 <div className="mobNavItem" onClick={()=>setActive('plan')}>
                 {active === 'plan' ? <img src={images.plansActive} className='img-fluid' alt="" /> : <img src={images.plans} className='img-fluid' alt="" /> }

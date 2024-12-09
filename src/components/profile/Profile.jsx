@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Profile.css';
 import { ref, set, get } from 'firebase/database';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { realtimeDb } from '../../firebase/firebase'; // Ensure your Firebase Realtime Database instance is correctly imported
 import { auth } from '../../firebase/firebase'; // Ensure Firebase Auth instance is imported
 
@@ -8,8 +9,31 @@ function Profile() {
     const [profilePic, setProfilePic] = useState(null);
     const [imageFile, setImageFile] = useState(null);
     const [loading, setLoading] = useState(false);
+    const [user] = useAuthState(auth);
+    const [username, setUsername] = useState('');
+  
+    useEffect(() => {
+      const fetchUsername = async () => {
+        if (user) {
+          const userRef = ref(realtimeDb, `users/${user.uid}/username`); // Path to the username
+          try {
+            const snapshot = await get(userRef);
+            if (snapshot.exists()) {
+              setUsername(snapshot.val()); // Set the username state
+            } else {
+              console.log('Username not found.');
+            }
+          } catch (error) {
+            console.error('Error fetching username:', error);
+          }
+        }
+      };
+  
+      fetchUsername();
+    }, [user]);
 
     useEffect(() => {
+
         // Fetch the profile picture from the database
         const fetchProfilePic = async () => {
             const user = auth.currentUser;
@@ -75,8 +99,12 @@ function Profile() {
                     ) : (
                         <div className="placeholder-pic">No Profile Picture</div>
                     )}
+
+                    
                 </div>
-                <div className="upload-section w-50 m-auto">
+                <p className='mb-1 fw-bold'>{username} </p>
+                <p className='mb-2'> {user.email}</p>
+                <div className="upload-section w-75 m-auto">
                     <input
                         type="file"
                         accept="image/*"
@@ -90,6 +118,9 @@ function Profile() {
                     >
                         {loading ? 'Saving...' : 'Save'}
                     </button>
+
+
+
                 </div>
             </div>
         </div>

@@ -23,16 +23,7 @@
     cursor: pointer;
 }
 
-.mobileMenu{
-    position: absolute;
-    background-color: rgba(0, 0, 0, 0.832);
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 3;
-    display: none;
-}
+
 
 .mainContainer{
     margin-top: 120px !important;
