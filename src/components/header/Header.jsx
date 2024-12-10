@@ -27,7 +27,7 @@ function Header() {
                 <a href="" className='p-3 nav-link'>Contact Us</a>
             </div>
             <div className="menuItem">
-                <a href="" className='p-3 nav-link'>Features</a>
+                <a href="#features" className='p-3 nav-link'>Features</a>
             </div>
         </div>
         

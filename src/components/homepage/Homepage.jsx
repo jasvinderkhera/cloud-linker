@@ -4,6 +4,7 @@ import { images } from "../../constant/ImagePath";
 import { Link } from "react-router-dom";
 import Header from "../header/Header";
 import Footer from "../footer/Footer";
+import how from '../../assets/images/how.mp4'
 
 function Homepage() {
   return (
@@ -37,7 +38,7 @@ function Homepage() {
           <img src={images.vector1} alt="" />
         </div>
       </div>
-      <div className="features d-flex flex-column-reverse flex-md-row gap-5 my-5 container">
+      <div className="features d-flex flex-column-reverse flex-md-row gap-5 my-5 container" id="features">
         <div className="featureBox1">
           <div className="featuretitle text-md-center text-start mb-5">
             <p>Features</p>
@@ -124,7 +125,9 @@ function Homepage() {
           </div>
         </div>
         <div className="workBox2">
-          <div className="videoBox bg-dark mx-5 h-100 rounded-5"></div>
+          <div className="videoBox bg-black mx-5 h-100 rounded-5 overflow-hidden">
+            <video src={how} className="img-fluid" muted autoPlay loop></video>
+          </div>
         </div>
         
       </div>

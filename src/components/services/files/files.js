@@ -244,7 +244,7 @@ function Files() {
 
             {/* Favourite Documents */}
             <div>
-                <h2 className="mt-4">Favourites</h2>
+                <h2 className="mt-4 ms-3 ms-md-0">Favourites</h2>
                 {favouriteDocs.length === 0 ? (
                     <p>No favourite documents found.</p>
                 ) : (
@@ -320,7 +320,7 @@ function Files() {
 
             {/* All Documents */}
             <div>
-                <h2 className="mt-4">All Documents</h2>
+                <h2 className="mt-4 ms-3 ms-md-0">All Documents</h2>
                 {allDocs.length === 0 ? (
                     <p>No documents found.</p>
                 ) : (

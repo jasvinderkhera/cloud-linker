@@ -72,7 +72,7 @@ function MainPage() {
   return (
     <div>
      <div className="container-fluid outerHeader bg-white">
-     <div className="loginHeader d-flex justify-content-between align-items-center container py-2">
+     <div className="loginHeader d-flex justify-content-between align-items-center container py-2 px-4 px-md-0">
       <div className="logo" onClick={()=>setActive('home')}>
         <img src={images.logoNew} alt="" className='img-fluid d-none d-md-block' />
         <img src={images.mobLogo} alt="" className='img-fluid d-md-none' />

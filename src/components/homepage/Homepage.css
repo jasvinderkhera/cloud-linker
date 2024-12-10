@@ -102,6 +102,11 @@ flex: 1;
 .workBox1{
     flex: 1;
 }
+
+.videoBox video{
+    object-fit: contain;
+    height: 100%;
+}
 .workBox2{
     flex: 1.2;
     height: 400px;

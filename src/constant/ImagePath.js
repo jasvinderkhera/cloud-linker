@@ -33,6 +33,7 @@ import mobFvtActive from "../assets/images/mobFvtActive.svg"
 import mobupld from "../assets/images/mobupld.svg"
 import mobupldActive from "../assets/images/mobupldActive.svg"
 import mobLogo from "../assets/images/mobLogo.svg"
+import github from "../assets/images/github.png"
 
 
 
@@ -71,5 +72,6 @@ export const images = {
     mobupld:mobupld,
     mobupldActive:mobupldActive,
     mobLogo:mobLogo,
+    github:github,
     
 }

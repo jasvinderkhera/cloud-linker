@@ -243,7 +243,7 @@ function ViewDocs() {
                     />
                </div>
             </div>
-                    <h2 className='mt-4'>Documents</h2>
+                    <h2 className='mt-4 ms-3 ms-md-0'>Documents</h2>
 
             {filteredDocs.length === 0 ? (
                 <p>No documents found.</p>
