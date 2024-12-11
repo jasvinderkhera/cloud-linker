@@ -7,6 +7,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import Register from './components/register/register';
 import MainPage from './components/mainPage/mainPage';
 import ForgotPassword from './components/forgotPassword/ForgotPassword';
+import Contact from './components/contact/contact';
 
 function App() {
   const [user] = useAuthState(auth);
@@ -22,6 +23,7 @@ function App() {
         <Route path="/login" element={!user ? <Login /> : <Navigate to="/main-page" />} />
         <Route path="/register" element={!user ? <Register /> : <Navigate to="/main-page" />} />
         <Route path="/forgot-password" element={!user ? <ForgotPassword /> : <Navigate to="/main-page" />} />
+        <Route path="/contact" element={<Contact/>} />
 
         {/* Private Routes */}
         <Route path="/main-page" element={<PrivateRoute user={user}><MainPage /></PrivateRoute>} />

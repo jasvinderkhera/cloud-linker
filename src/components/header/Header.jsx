@@ -25,7 +25,7 @@ function Header() {
                 <a href="" className='p-3 nav-link'>Kishan UI/UX</a>
             </div>
             <div className="menuItem">
-                <a href="" className='p-3 nav-link'>Contact Us</a>
+                <Link to="/contact" className='p-3 nav-link'>Contact Us</Link>
             </div>
             <div className="menuItem">
                 <a href="#features" className='p-3 nav-link'>Features</a>

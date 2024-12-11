@@ -1,0 +1,13 @@
+.ContactDeveloper{
+border-right: 1px solid;
+}
+
+.ContactDesigner{
+    border-left: 1px solid;
+}
+
+.contactPicture{
+    height: 80px;
+    width: 80px;
+}
+
