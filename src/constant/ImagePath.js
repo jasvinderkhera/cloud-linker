@@ -34,6 +34,8 @@ import mobupld from "../assets/images/mobupld.svg"
 import mobupldActive from "../assets/images/mobupldActive.svg"
 import mobLogo from "../assets/images/mobLogo.svg"
 import github from "../assets/images/github.png"
+import freePlan from "../assets/images/freePlan.svg"
+import paidPlan from "../assets/images/paidPlan.svg"
 
 
 
@@ -73,5 +75,6 @@ export const images = {
     mobupldActive:mobupldActive,
     mobLogo:mobLogo,
     github:github,
-    
+    freePlan:freePlan,
+    paidPlan:paidPlan,
 }

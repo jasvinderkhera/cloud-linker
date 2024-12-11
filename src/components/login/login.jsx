@@ -23,7 +23,7 @@ function Login() {
     <div>
       <div className="container">
         <div className="Loginlogo py-2 text-center text-md-start">
-          <img src={images.logoNew} alt="" className="img-fluid" />
+         <Link to="/"> <img src={images.logoNew} alt="" className="img-fluid" /></Link>
         </div>
         <div className="row">
           <div className="col-md-6 ellipse d-md-flex d-none justify-content-center align-items-center">

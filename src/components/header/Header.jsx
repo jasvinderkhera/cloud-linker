@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import './Header.css'
 import {images} from '../../constant/ImagePath'
+import { Link } from 'react-router-dom'
 
 function Header() {
     const [display,setDisplay] = useState('hide')
@@ -17,7 +18,7 @@ function Header() {
     <div className='header-outer-container d-none d-md-block'>
     <div className='center-container header py-3 px-3 d-flex justify-content-between align-items-center'>
         <div className="logo">
-            <img src={images.logoNew} alt="" className='img-fluid logoImage'/>
+            <Link to="/" className="nav-link"><img src={images.logoNew} alt="" className='img-fluid logoImage'/></Link>
         </div>
         <div className="menus d-flex gap-3">
             <div className="menuItem">

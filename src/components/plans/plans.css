@@ -1,0 +1,10 @@
+.freePlan{
+    background-image: url('../../assets/images/freePlan.svg');
+    padding: 20px;
+    background-size: cover;
+}
+
+.paidPlan{
+    background-image: url('../../assets/images/paidPlan.svg');
+    padding:10px 20px;
+}
