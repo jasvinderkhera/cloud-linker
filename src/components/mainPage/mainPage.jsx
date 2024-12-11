@@ -10,7 +10,8 @@ import Setting from '../setting/setting';
 import Plans from '../plans/plans';
 import Files from '../services/files/files';
 import Modal from "react-bootstrap/Modal";
-import Button from "react-bootstrap/Button";
+import { Link} from 'react-router-dom';
+
 
 function MainPage() {
   const [user] = useAuthState(auth);
@@ -98,7 +99,7 @@ function MainPage() {
         </div>
         <div className="help d-md-flex d-none gap-2 border border-1 rounded-2 px-3 py-2">
         <div className="rounded-circle border border-black border-2 rounded-circle px-2"> ?</div>
-        Help & Support
+        <Link to='/help' className='nav-link'>Help & Support</Link>
         </div>
       </div>
       </div>

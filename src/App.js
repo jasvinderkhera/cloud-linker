@@ -8,6 +8,7 @@ import Register from './components/register/register';
 import MainPage from './components/mainPage/mainPage';
 import ForgotPassword from './components/forgotPassword/ForgotPassword';
 import Contact from './components/contact/contact';
+import Help from './components/help/help';
 
 function App() {
   const [user] = useAuthState(auth);
@@ -24,6 +25,7 @@ function App() {
         <Route path="/register" element={!user ? <Register /> : <Navigate to="/main-page" />} />
         <Route path="/forgot-password" element={!user ? <ForgotPassword /> : <Navigate to="/main-page" />} />
         <Route path="/contact" element={<Contact/>} />
+        <Route path="/help" element={<Help/>} />
 
         {/* Private Routes */}
         <Route path="/main-page" element={<PrivateRoute user={user}><MainPage /></PrivateRoute>} />
