@@ -1,10 +1,13 @@
 .freePlan{
-    background-image: url('../../assets/images/freePlan.svg');
+    background-color:  var(--main-color);
     padding: 20px;
-    background-size: cover;
+    height: 400px;
+    width: 380px;
 }
 
 .paidPlan{
     background-image: url('../../assets/images/paidPlan.svg');
     padding:15px 20px;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
