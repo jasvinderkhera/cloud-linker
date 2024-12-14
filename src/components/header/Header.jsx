@@ -40,9 +40,9 @@ function Header() {
 </div>
 <div className="mobileMenuItems" style={display === "show" ? {display : "block"} : {display : "none"}}>
    <div className="menuItems mt-5">
-   <a href="" className="nav-link p-3 text-white fs-5 fw-bold">Kishan UI & UX</a>
-    <a href="" className="nav-link p-3 text-white fs-5 fw-bold">Contact Us</a>
-    <a href="" className="nav-link p-3 text-white fs-5 fw-bold">Features</a>
+   <Link to='' className="nav-link p-3 text-white fs-5 fw-bold">Kishan UI & UX</Link>
+    <Link to='/contact' className="nav-link p-3 text-white fs-5 fw-bold">Contact Us</Link>
+    <Link to='#features' className="nav-link p-3 text-white fs-5 fw-bold">Features</Link>
    </div>
 </div>
 </div>

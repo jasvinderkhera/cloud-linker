@@ -118,6 +118,7 @@ flex: 1;
     height: 400px;
 }
 
+
 @media screen and (max-width:768px) {
     .rightCircle img{
         height: 300px;

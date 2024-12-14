@@ -144,7 +144,9 @@ function Homepage() {
           </div>
         </div>
         <div className="workBox2">
-          <div className="videoBox bg-dark mx-5 h-100 rounded-5"></div>
+          <div className="videoBox bg-dark mx-5 h-100 rounded-5">
+            <img src={images.play} alt="" className="img-fluid h-100"/>
+          </div>
         </div>
         
       </div>
