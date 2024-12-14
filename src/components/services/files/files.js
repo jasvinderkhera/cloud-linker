@@ -19,6 +19,7 @@ function Files() {
     const [newName, setNewName] = useState('');
     const [modalVisible, setModalVisible] = useState(false);
     const [selectedDoc, setSelectedDoc] = useState(null);
+    const [confirmDelete, setConfirmDelete] = useState('hide');
     
 
     useEffect(() => {
@@ -273,7 +274,14 @@ function Files() {
                                     {show === doc.id && (
                                         <div className="actions gap-3 d-flex flex-md-column rounded-2 justify-content-center px-2 py-2">
                                             <div className='d-flex gap-2' onClick={() => setRenameDocId(doc.id)} ><img src={images.edit} alt="" className="img-fluid" /><span className='px-1'>Edit</span></div>
-                                            <div className='d-flex gap-2' onClick={() => handleDelete(doc.id)}><img src={images.deleted} alt="" className="img-fluid invert"  /><span className='px-1'>Delete</span></div>
+                                            <div className='d-flex gap-2' onClick={() => setConfirmDelete('show')}><img src={images.deleted} alt="" className="img-fluid invert"  /><span className='px-1'>Delete</span>
+                                            <div className={confirmDelete === "show" ? 'confirm d-flex flex-column p-4 rounded-2' : "confirm d-none p-4 rounded-2"}>
+                                                <p className="text-center px-3">Are you sure you want to delete ?</p>
+                                                <div className="d-flex justify-content-center gap-4">
+                                                    <div className='btn btn-danger' onClick={ () => {handleDelete(doc.id); setConfirmDelete('hide')}}>Delete</div>
+                                                    <div className='btn btn-info' onClick={()=>{setConfirmDelete('hide')}}>Cancel</div>
+                                                </div>
+                                                </div></div>
                                             <div className='d-flex gap-2' onClick={() => handleShare(doc)}><img src={images.share} alt="" className="img-fluid"  /><span className='px-1'>Share</span></div>
                                           
                                             
@@ -349,7 +357,15 @@ function Files() {
                                         {show === doc.id && (
                                             <div className="actions gap-3 d-flex flex-md-column rounded-2 justify-content-center px-2 py-2">
                                                 <div className='d-flex gap-2' onClick={() => setRenameDocId(doc.id)} ><img src={images.edit} alt="" className="img-fluid" /><span className='px-1'>Edit</span></div>
-                                                <div className='d-flex gap-2' onClick={() => handleDelete(doc.id)}><img src={images.deleted} alt="" className="img-fluid invert"  /><span className='px-1'>Delete</span></div>
+                                                <div className='d-flex gap-2' onClick={() => setConfirmDelete('show')}><img src={images.deleted} alt="" className="img-fluid invert"  /><span className='px-1'>Delete</span>
+                                                <div className={confirmDelete === "show" ? 'confirm d-flex flex-column p-4 rounded-2' : "confirm d-none p-4 rounded-2"}>
+                                                <p className="text-center px-3">Are you sure you want to delete ?</p>
+                                                <div className="d-flex justify-content-center gap-4">
+                                                    <div className='btn btn-danger' onClick={ () => {handleDelete(doc.id); setConfirmDelete('hide')}}>Delete</div>
+                                                    <div className='btn btn-info' onClick={()=>{setConfirmDelete('hide')}}>Cancel</div>
+                                                </div>
+                                                </div>
+                                                </div>
                                                 <div className='d-flex gap-2' onClick={() => handleShare(doc)}><img src={images.share} alt="" className="img-fluid"  /><span className='px-1'>Share</span></div>
                                               
                                                 
@@ -410,8 +426,15 @@ function Files() {
               <Button className='btn-success' onClick={() => handleRename(selectedDoc.id)}>
                 Rename
               </Button>
-              <Button className='btn btn-danger' onClick={() => handleDelete(selectedDoc.id)}>
+              <Button className='btn btn-danger' onClick={() => setConfirmDelete('show')}>
                 Delete
+                <div className={confirmDelete === "show" ? 'modalConfirm d-flex flex-column p-4 rounded-2' : "modalConfirm d-none p-4 rounded-2"}>
+                                                <p className="text-center text-black px-3">Are you sure you want to delete ?</p>
+                                                <div className="d-flex justify-content-center gap-4">
+                                                    <div className='btn btn-danger' onClick={ () =>{handleDelete(selectedDoc.id); setConfirmDelete('hide')}}>Delete</div>
+                                                    <div className='btn btn-info' onClick={()=>{setConfirmDelete('hide')}}>Cancel</div>
+                                                </div>
+                                                </div>
               </Button>
               <Button className='btn btn-primary' onClick={() => handleToggleFavourite(selectedDoc.id)}>
                 Favourite

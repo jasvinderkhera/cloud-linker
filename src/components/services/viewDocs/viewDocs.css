@@ -43,6 +43,21 @@
     background-color: white;
 }
 
+.confirm{
+    position: absolute;
+    left: -150px;
+    height: 150px;
+    background-color: white;
+    box-shadow: 2px 1px 11px 0px rgba(0, 0, 0, 0.497);
+}
+.modalConfirm{
+    position: absolute;
+    left: -150px;
+    height: 150px;
+    background-color: white;
+    box-shadow: 2px 1px 11px 0px rgba(0, 0, 0, 0.497);
+}
+
 .searchOverlay{
     position: fixed;
     top: 68px;
@@ -99,6 +114,25 @@
     .searchOverlay{
         margin-left: 12px;
     }
-    
+
+    .actions {
+        right: -15px;
+    }
+    .confirm{
+        position: absolute;
+        left: -40px;
+        height: 150px;
+        background-color: white;
+        box-shadow: 2px 1px 11px 0px rgba(0, 0, 0, 0.497);
+    }
+
+    .modalConfirm{
+        position: absolute;
+        top:162px;
+        left: 25px;
+        height: 150px;
+        background-color: white;
+        box-shadow: 2px 1px 11px 0px rgba(0, 0, 0, 0.497);
+    }
     
 }
