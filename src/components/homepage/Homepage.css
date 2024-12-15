@@ -3,6 +3,11 @@
     min-height: 100vh;
 }
 
+.topContainer{
+    width: 1519px;
+    margin: auto;
+}
+
 .rightCircle{
   height: 90vh;
   width: 50%;
