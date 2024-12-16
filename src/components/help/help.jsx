@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 function Help() {
   return (
     <div>
-        <div className="container d-flex justify-content-between py-3">
+        <div className="container d-flex justify-content-between py-2">
             <div className="logo">
                 <Link to={'/main-page'}><img src={images.logoNew} alt="" className='img-fluid' /></Link>
             </div>

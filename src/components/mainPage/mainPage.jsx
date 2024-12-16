@@ -97,10 +97,10 @@ function MainPage() {
           <img src={profilePic} alt="" className='img-fluid' />
           
         </div>
-        <div className="help d-md-flex d-none gap-2 border border-1 rounded-2 px-3 py-2">
+        <Link to='/help' className=" nav-link help d-md-flex d-none gap-2 border border-1 rounded-2 px-3 py-2">
         <div className="rounded-circle border border-black border-2 rounded-circle px-2"> ?</div>
-        <Link to='/help' className='nav-link'>Help & Support</Link>
-        </div>
+        <div>Help & Support</div>
+        </Link>
       </div>
       </div>
       <hr  className='m-0 border-2 border-dark'/>

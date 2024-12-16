@@ -125,6 +125,11 @@ flex: 1;
 
 
 @media screen and (max-width:768px) {
+
+    .topContainer{
+        width: 100%;
+        margin: auto;
+    }
     .rightCircle img{
         height: 300px;
         width: 100%;
