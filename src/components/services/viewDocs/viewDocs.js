@@ -18,7 +18,7 @@ function ViewDocs() {
     const [newName, setNewName] = useState('');
     const [modalVisible, setModalVisible] = useState(false);
     const [selectedDoc, setSelectedDoc] = useState(null);
-    const [confirmDelete, setConfirmDelete] = useState('hide');
+    const [confirmDelete, setConfirmDelete] = useState(false);
 
 
     useEffect(() => {
@@ -271,12 +271,12 @@ function ViewDocs() {
                                     {show === doc.id && (
                                         <div className="actions gap-3 d-flex flex-md-column rounded-2 justify-content-center px-2 py-2">
                                             <div className='d-flex gap-2' onClick={() => setRenameDocId(doc.id)} ><img src={images.edit} alt="" className="img-fluid" /><span className='px-1'>Edit</span></div>
-                                            <div className='d-flex gap-2' onClick={() => setConfirmDelete('show')}><img src={images.deleted} alt="" className="img-fluid invert"  /><span className='px-1'>Delete</span>
-                                            <div className={confirmDelete === "show" ? 'confirm d-flex flex-column p-4 rounded-2' : "confirm d-none p-4 rounded-2"}>
+                                            <div className='d-flex gap-2' onClick={() => setConfirmDelete(true)}><img src={images.deleted} alt="" className="img-fluid invert"  /><span className='px-1'>Delete</span>
+                                            <div className={confirmDelete == true ? 'confirm d-flex flex-column p-4 rounded-2' : "confirm d-none p-4 rounded-2"}>
                                                 <p className="text-center px-3">Are you sure you want to delete ?</p>
                                                 <div className="d-flex justify-content-center gap-4">
-                                                    <div className='btn btn-danger' onClick={ () => {handleDelete(doc.id); setConfirmDelete('hide')}}>Delete</div>
-                                                    <div className='btn btn-info' onClick={()=>{setConfirmDelete('hide')}}>Cancel</div>
+                                                    <div className='btn btn-danger' onClick={ () => { setConfirmDelete(false)}}>Delete</div>
+                                                    <div className='btn btn-info' onClick={()=>{setConfirmDelete(false); console.log(confirmDelete)}}>Cancel</div>
                                                 </div>
                                                 </div>
                                             </div>
@@ -344,7 +344,7 @@ function ViewDocs() {
                                                 <p className="text-center text-black px-3">Are you sure you want to delete ?</p>
                                                 <div className="d-flex justify-content-center gap-4">
                                                     <div className='btn btn-danger' onClick={ () =>{handleDelete(selectedDoc.id); setConfirmDelete('hide')}}>Delete</div>
-                                                    <div className='btn btn-info' onClick={()=>{setConfirmDelete('hide')}}>Cancel</div>
+                                                    <div className='btn btn-info' onClick={()=>{ setConfirmDelete('hide');console.log(confirmDelete)}}>Cancel</div>
                                                 </div>
                                                 </div>
               </Button>

@@ -8,7 +8,9 @@ function Header() {
     const toggleMenu = () =>{
         if(display === "hide"){
             setDisplay('show')
+            document.body.classList.add('modal-open')
         } else{
+            document.body.classList.remove('modal-open')
             setDisplay("hide")
         }
     }
