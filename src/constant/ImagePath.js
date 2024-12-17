@@ -36,7 +36,7 @@ import mobLogo from "../assets/images/mobLogo.svg"
 import github from "../assets/images/github.png"
 import freePlan from "../assets/images/freePlan.svg"
 import paidPlan from "../assets/images/paidPlan.svg"
-import play from '../assets/images/play.png'
+import play from '../assets/images/play.jpg'
 import dp from '../assets/images/dp.jpg'
 
 
