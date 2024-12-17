@@ -103,7 +103,7 @@ function MainPage() {
         </Link>
       </div>
       </div>
-      <hr  className='m-0 border-2 border-dark'/>
+      <hr  className='m-0 border-1 border-dark'/>
      </div>
       <div className="mainContainer container my-4">
         <div className="row">

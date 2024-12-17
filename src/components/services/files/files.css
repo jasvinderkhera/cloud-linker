@@ -57,7 +57,7 @@
 
 .searchOverlay{
     position: fixed;
-    top: 68px;
+    top: 77px;
     z-index: 2;
     width: 100%;
     margin-left:0px;
@@ -70,7 +70,7 @@
 
 .searchIcon{
     position: absolute;
-    top:30px;
+    top:19px;
     left: 35px;
     height: 16px;
     width: 16px;

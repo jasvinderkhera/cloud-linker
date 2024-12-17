@@ -40,7 +40,7 @@ function Homepage() {
       </div>
       <div className="features d-flex flex-column-reverse flex-md-row gap-5 my-5 container" id="features">
         <div className="featureBox1">
-          <div className="featuretitle text-md-center text-start mb-5">
+          <div className="featuretitle d-none d-md-block text-md-center text-start mb-5">
             <p>Features</p>
           </div>
           <div className="featuresList">
@@ -68,15 +68,21 @@ function Homepage() {
           </div>
         </div>
         <div className="featureBox2">
+        <div className="featuretitle d-block d-md-none text-md-center text-start mt-5">
+            <p>Features</p>
+          </div>
           <img src={images.vector2} alt="" className="img-fluid"/>
         </div>
       </div>
       <div className="choose d-flex flex-column flex-md-row gap-md-5 gap-3 my-5 container">
         <div className="chooseBox2">
+        <div className="featuretitle d-block d-md-none text-center mb-2">
+            <p>Why Choose Us ?</p>
+          </div>
           <img src={images.vector3} alt="" className="img-fluid"/>
         </div>
         <div className="chooseBox1">
-          <div className="featuretitle text-center mb-5">
+          <div className="featuretitle d-none d-md-block text-center mb-5">
             <p>Why Choose Us ?</p>
           </div>
           <div className="featuresList">
@@ -104,7 +110,7 @@ function Homepage() {
       </div>
       <div className="works d-flex flex-column-reverse flex-md-row gap-5 my-5 container">
         <div className="workBox1">
-          <div className="featuretitle text-center mb-md-5 mb-3">
+          <div className="featuretitle d-none d-md-block text-center mb-md-5">
             <p>How it Works</p>
           </div>
           <div className="workList">
@@ -125,6 +131,9 @@ function Homepage() {
           </div>
         </div>
         <div className="workBox2">
+        <div className="featuretitle d-block d-md-none text-center mb-3">
+            <p>How it Works</p>
+          </div>
           <div className="videoBox bg-black mx-5 h-100 rounded-5 overflow-hidden">
             <video src={how} className="img-fluid" muted autoPlay loop></video>
           </div>
@@ -134,7 +143,7 @@ function Homepage() {
       <div className="playstore">
             <h2 className="fs-1 text-center fw-bold">Now available in Play Store</h2>
         </div>
-        <div className="works d-flex flex-column flex-md-row gap-5 my-5 container">
+        <div className="works d-flex flex-column-reverse flex-md-row gap-5 my-5 container">
         <div className="workBox1 d-flex justify-content-around align-items-center flex-column">
           <div className="download fs-1 text-center">
             <p className="p-3">Download Now</p>

@@ -40,7 +40,7 @@ function App() {
 }
 
 function PrivateRoute({ user, children }) {
-  return user ? children : <Navigate to="/login" />;
+  return user ? children : <Navigate to="/" />;
 }
 
 export default App;

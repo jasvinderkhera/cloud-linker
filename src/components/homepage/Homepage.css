@@ -169,4 +169,17 @@ flex: 1;
         list-style: none;
         padding-left: 0;
     }
+
+    .featureBox2 img{
+        margin-top: 0px;
+    }
+
+    .workBox2 .videoBox{
+        margin: 0px !important;
+    }
+    .workBox2 .videoBox video{
+        height: 400px;
+        width: 100%;
+        transform: scale(2);
+    }
 }
