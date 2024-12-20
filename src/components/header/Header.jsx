@@ -23,9 +23,7 @@ function Header() {
             <Link to="/" className="nav-link"><img src={images.logoNew} alt="" className='img-fluid logoImage'/></Link>
         </div>
         <div className="menus d-flex gap-3">
-            <div className="menuItem">
-                <a href="" className='p-3 nav-link'>Kishan UI/UX</a>
-            </div>
+            
             <div className="menuItem">
                 <Link to="/contact" className='p-3 nav-link'>Contact Us</Link>
             </div>
@@ -42,7 +40,6 @@ function Header() {
 </div>
 <div className="mobileMenuItems" style={display === "show" ? {display : "block"} : {display : "none"}}>
    <div className="menuItems mt-5">
-   <Link to='' className="nav-link p-3 text-white fs-5 fw-bold">Kishan UI & UX</Link>
     <Link to='/contact' className="nav-link p-3 text-white fs-5 fw-bold">Contact Us</Link>
     <Link to='#features' className="nav-link p-3 text-white fs-5 fw-bold">Features</Link>
    </div>
