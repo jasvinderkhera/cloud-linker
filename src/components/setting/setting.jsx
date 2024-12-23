@@ -1,11 +1,9 @@
 import React from 'react';
-import { auth } from '../../firebase/firebase'; // Your Firebase auth instance
+import { auth } from '../../firebase/firebase';
 import './setting.css'
 import Profile from '../profile/Profile';
 
 function Setting() {
-
-
 
     const handleLogout = () => {
         auth.signOut();

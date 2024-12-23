@@ -124,7 +124,7 @@ function Files() {
             .then(() => {
                 const updatedDocs = documents.filter(doc => doc.id !== docId);
                 setDocuments(updatedDocs);
-                setFilteredDocs(updatedDocs); // Update filteredDocs
+                setFilteredDocs(updatedDocs);
                 toast.success('Document deleted successfully!');
             })
             .catch((error) => {
@@ -163,21 +163,17 @@ function Files() {
         }
     };
 
-    // Base to blob
 
     const base64ToBlob = (base64) => {
-        // Add prefix if missing
         if (!base64.startsWith("data:image")) {
             base64 = `data:image/png;base64,${base64}`;
         }
     
-        // Split into prefix and actual Base64 data
         const [prefix, base64Data] = base64.split(",");
         if (!base64Data) {
             throw new Error("Invalid Base64 string");
         }
     
-        // Decode Base64 and create a Blob
         const binary = atob(base64Data);
         const array = [];
         for (let i = 0; i < binary.length; i++) {

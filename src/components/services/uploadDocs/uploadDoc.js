@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ref, set } from 'firebase/database';
-import { auth, realtimeDb } from '../../../firebase/firebase'; // Import auth and realtimeDb
+import { auth, realtimeDb } from '../../../firebase/firebase';
 import { images } from '../../../constant/ImagePath';
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
@@ -18,7 +18,7 @@ function UploadDoc() {
     };
 
     const sanitizeFileName = (fileName) => {
-        return fileName.replace(/[.#$\[\]]/g, "_");  // Replace invalid characters with underscores
+        return fileName.replace(/[.#$\[\]]/g, "_");
     };
 
     const handleUpload = async (e) => {
@@ -28,19 +28,19 @@ function UploadDoc() {
             return;
         }
 
-        const sanitizedFileName = sanitizeFileName(fileName);  // Sanitize the file name
+        const sanitizedFileName = sanitizeFileName(fileName);
         const user = auth.currentUser;
         if (!user) {
             toast.error('No user is logged in.');
             return;
         }
 
-        const userId = user.uid;  // Get the current user's UID
+        const userId = user.uid;
         const reader = new FileReader();
 
         reader.onload = async () => {
-            const base64Image = reader.result.split(',')[1]; // Base64 encoded image
-            const docRef = ref(realtimeDb, `users/${userId}/documents/${sanitizedFileName}`); // Store under user's UID
+            const base64Image = reader.result.split(',')[1];
+            const docRef = ref(realtimeDb, `users/${userId}/documents/${sanitizedFileName}`);
 
             try {
                 await set(docRef, {
@@ -60,7 +60,7 @@ function UploadDoc() {
             console.error('FileReader error:', error.message);
         };
 
-        reader.readAsDataURL(file); // Convert image to base64
+        reader.readAsDataURL(file);
     };
 
     return (

@@ -11,11 +11,11 @@ import 'react-toastify/dist/ReactToastify.css'
 
 function ViewDocs() {
     const [documents, setDocuments] = useState([]);
-    const [filteredDocs, setFilteredDocs] = useState([]); // State for filtered documents
+    const [filteredDocs, setFilteredDocs] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [show, setShow] = useState(null);
-    const [searchQuery, setSearchQuery] = useState(''); // State for search query
+    const [searchQuery, setSearchQuery] = useState('');
     const [renameDocId, setRenameDocId] = useState(null);
     const [newName, setNewName] = useState('');
     const [modalVisible, setModalVisible] = useState(false);
@@ -43,7 +43,7 @@ function ViewDocs() {
                     ...data[key],
                 }));
                 setDocuments(docs);
-                setFilteredDocs(docs); // Initialize filteredDocs
+                setFilteredDocs(docs);
             } else {
                 setDocuments([]);
                 setFilteredDocs([]);
@@ -144,7 +144,7 @@ function ViewDocs() {
             .then(() => {
                 const updatedDocs = documents.filter(doc => doc.id !== docId);
                 setDocuments(updatedDocs);
-                setFilteredDocs(updatedDocs); // Update filteredDocs
+                setFilteredDocs(updatedDocs);
                 toast.success('Document deleted successfully!');
             })
             .catch((error) => {
@@ -186,18 +186,15 @@ function ViewDocs() {
     // Base to blob
 
     const base64ToBlob = (base64) => {
-        // Add prefix if missing
         if (!base64.startsWith("data:image")) {
             base64 = `data:image/png;base64,${base64}`;
         }
     
-        // Split into prefix and actual Base64 data
         const [prefix, base64Data] = base64.split(",");
         if (!base64Data) {
             throw new Error("Invalid Base64 string");
         }
     
-        // Decode Base64 and create a Blob
         const binary = atob(base64Data);
         const array = [];
         for (let i = 0; i < binary.length; i++) {
@@ -217,9 +214,8 @@ function ViewDocs() {
         const query = e.target.value.toLowerCase();
         setSearchQuery(query);
 
-        // Filter documents based on the search query
         const filtered = documents.filter(doc =>
-            doc.name.toLowerCase().includes(query) // Check if the name includes the query
+            doc.name.toLowerCase().includes(query)
         );
         setFilteredDocs(filtered);
     };
@@ -243,7 +239,7 @@ function ViewDocs() {
                     placeholder="Search here"
                     className="form-control rounded-4 py-2 px-5 border-2"
                     value={searchQuery}
-                    onChange={handleSearch} // Call handleSearch on input change
+                    onChange={handleSearch}
                     />
                </div>
             </div>
