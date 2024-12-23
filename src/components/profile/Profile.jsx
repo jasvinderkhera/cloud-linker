@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react';
 import './Profile.css';
 import { ref, set, get } from 'firebase/database';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { realtimeDb } from '../../firebase/firebase'; // Ensure your Firebase Realtime Database instance is correctly imported
-import { auth } from '../../firebase/firebase'; // Ensure Firebase Auth instance is imported
+import { realtimeDb } from '../../firebase/firebase';
+import { auth } from '../../firebase/firebase';
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 function Profile() {
     const [profilePic, setProfilePic] = useState(null);
@@ -15,16 +17,16 @@ function Profile() {
     useEffect(() => {
       const fetchUsername = async () => {
         if (user) {
-          const userRef = ref(realtimeDb, `users/${user.uid}/username`); // Path to the username
+          const userRef = ref(realtimeDb, `users/${user.uid}/username`); 
           try {
             const snapshot = await get(userRef);
             if (snapshot.exists()) {
-              setUsername(snapshot.val()); // Set the username state
+              setUsername(snapshot.val());
             } else {
-              console.log('Username not found.');
+              toast.error('Username not found.');
             }
           } catch (error) {
-            console.error('Error fetching username:', error);
+            toast.error('Error fetching username:', error);
           }
         }
       };
@@ -62,7 +64,7 @@ function Profile() {
 
     const saveProfilePicture = async () => {
         if (!imageFile) {
-            alert('Please select an image first.');
+            toast.error('Please select an image first.');
             return;
         }
 
@@ -70,7 +72,7 @@ function Profile() {
         try {
             const user = auth.currentUser;
             if (!user) {
-                alert('User is not logged in.');
+                toast.error('User is not logged in.');
                 return;
             }
             const userId = user.uid;
@@ -79,10 +81,10 @@ function Profile() {
             // Save the Base64 string to the Realtime Database
             await set(profilePicRef, imageFile);
             setProfilePic(imageFile); // Update the UI
-            alert('Profile picture updated successfully!');
+            toast.success('Profile picture updated successfully!');
         } catch (error) {
             console.error('Error updating profile picture:', error);
-            alert('Failed to update profile picture.');
+            toast.error('Failed to update profile picture.');
         } finally {
             setLoading(false);
         }

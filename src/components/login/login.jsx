@@ -4,6 +4,8 @@ import { images } from "../../constant/ImagePath";
 import { Link } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase/firebase";
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -13,9 +15,9 @@ function Login() {
     e.preventDefault();
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      alert("Logged in successfully!");
+      toast.success("Logged in successfully!");
     } catch (error) {
-      console.error("Login failed:", error.message);
+      toast.error("Login failed:", error.message);
     }
   };
 

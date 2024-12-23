@@ -6,6 +6,8 @@ import { auth } from '../../../firebase/firebase';
 import { images } from '../../../constant/ImagePath';
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 
 function Files() {
@@ -25,7 +27,7 @@ function Files() {
     useEffect(() => {
         const user = auth.currentUser;
         if (!user) {
-            setError('No user is logged in.');
+            toast.error('No user is logged in.');
             setLoading(false);
             return;
         }
@@ -58,7 +60,7 @@ function Files() {
 
       const handleRename = (docId) => {
         if (!newName.trim()) {
-            alert('Please enter a valid name.');
+            toast.error('Please enter a valid name.');
             return;
         }
 
@@ -77,11 +79,11 @@ function Files() {
                 );
                 setRenameDocId(null);
                 setNewName('');
-                alert('Document renamed successfully!');
+                toast.success('Document renamed successfully!');
             })
             .catch((error) => {
                 console.error('Error renaming document:', error);
-                alert('Error renaming document.');
+                toast.error('Error renaming document.');
             });
     };
 
@@ -123,11 +125,11 @@ function Files() {
                 const updatedDocs = documents.filter(doc => doc.id !== docId);
                 setDocuments(updatedDocs);
                 setFilteredDocs(updatedDocs); // Update filteredDocs
-                alert('Document deleted successfully!');
+                toast.success('Document deleted successfully!');
             })
             .catch((error) => {
                 console.error('Error deleting document:', error);
-                alert('Error deleting document.');
+                toast.error('Error deleting document.');
             });
     };
 
@@ -136,7 +138,7 @@ function Files() {
 
       const handleShare = (doc) => {
         if (!doc.image) {
-            alert("Invalid or missing image data.");
+            toast.error("Invalid or missing image data.");
             return;
         }
     
@@ -153,11 +155,11 @@ function Files() {
                     .then(() => console.log("Document shared successfully"))
                     .catch((error) => console.error("Error sharing document:", error));
             } else {
-                alert("Sharing is not supported in your browser.");
+                toast.error("Sharing is not supported in your browser.");
             }
         } catch (error) {
             console.error("Error sharing document:", error.message);
-            alert("Failed to share the document.");
+            toast.error("Failed to share the document.");
         }
     };
 
@@ -203,7 +205,7 @@ function Files() {
             })
             .catch((error) => {
                 console.error('Error updating favourite status:', error);
-                alert('Error updating favourite status.');
+                toast.error('Error updating favourite status.');
             });
     };
 

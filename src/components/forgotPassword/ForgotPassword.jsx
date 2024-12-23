@@ -4,6 +4,8 @@ import { sendPasswordResetEmail } from "firebase/auth";
 import {auth} from '../../firebase/firebase'
 import { Link } from "react-router-dom";
 import { images } from "../../constant/ImagePath";
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 function ForgotPassword() {
   const [resetEmail, setResetEmail] = useState("");
@@ -11,9 +13,9 @@ function ForgotPassword() {
   const handleForgotPassword = async () => {
     try {
       await sendPasswordResetEmail(auth, resetEmail);
-      alert("Password reset email sent! Check your inbox.");
+      toast.success("Password reset email sent! Check your inbox.");
     } catch (error) {
-      alert(error.message);
+      toast.error(error.message);
     }
   };
 

@@ -4,6 +4,7 @@ import Login from './components/login/login';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { auth } from './firebase/firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { ToastContainer } from 'react-toastify'
 import Register from './components/register/register';
 import MainPage from './components/mainPage/mainPage';
 import ForgotPassword from './components/forgotPassword/ForgotPassword';
@@ -14,6 +15,18 @@ function App() {
   const [user] = useAuthState(auth);
   return (
     <BrowserRouter>
+      <ToastContainer
+                position="top-right"
+                autoClose={3000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="colored"
+            />
 
       <Routes>
 

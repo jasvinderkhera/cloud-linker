@@ -5,6 +5,8 @@ import React, { useState } from "react";
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { ref, set } from 'firebase/database';
 import { auth, realtimeDb } from '../../firebase/firebase';
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 function Register() {
   const [username, setUsername] = useState('');
@@ -26,10 +28,10 @@ function Register() {
           email: user.email,
       });
 
-      alert('Account created successfully!');
+      toast.success('Account created successfully!');
   } catch (error) {
       console.error('Registration failed:', error.message);
-      alert(error.message);
+      toast.error(error.message);
   }
    } else{
     return

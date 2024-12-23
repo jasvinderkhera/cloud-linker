@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { ref, set } from 'firebase/database';
 import { auth, realtimeDb } from '../../../firebase/firebase'; // Import auth and realtimeDb
 import { images } from '../../../constant/ImagePath';
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 function UploadDoc() {
     const [file, setFile] = useState(null);
@@ -22,14 +24,14 @@ function UploadDoc() {
     const handleUpload = async (e) => {
         e.preventDefault();
         if (!file) {
-            setError('Please select a file to upload.');
+            toast.error('Please select a file to upload.');
             return;
         }
 
         const sanitizedFileName = sanitizeFileName(fileName);  // Sanitize the file name
         const user = auth.currentUser;
         if (!user) {
-            setError('No user is logged in.');
+            toast.error('No user is logged in.');
             return;
         }
 
@@ -46,15 +48,15 @@ function UploadDoc() {
                     image: base64Image,
                     createdAt: new Date().toISOString(),
                 });
-                alert('Document uploaded successfully!');
+                toast.success('Document uploaded successfully!');
             } catch (error) {
                 console.error('Upload failed:', error.message);
-                setError(`Upload failed: ${error.message}`);
+                toast.error(`Upload failed: ${error.message}`);
             }
         };
 
         reader.onerror = (error) => {
-            setError(`FileReader error: ${error.message}`);
+            toast.error(`FileReader error: ${error.message}`);
             console.error('FileReader error:', error.message);
         };
 
