@@ -18,14 +18,11 @@ function MainPage() {
   const [username, setUsername] = useState('');
   const [active,setActive] = useState('home')
   const [profilePic, setProfilePic] = useState(null);
-  const [mobileMenu, setMobileMenu] = useState('hide')
   const [modalVisible, setModalVisible] = useState(false);
 
-  // console.log("active:", active)
 
 
   useEffect(() => {
-    // Fetch the profile picture from the database
     const fetchProfilePic = async () => {
         const user = auth.currentUser;
         if (user) {

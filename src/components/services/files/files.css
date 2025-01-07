@@ -98,6 +98,9 @@
     .imgContainer{
         width: 95%;
     }
+    .searchOverlay{
+        margin-left: 12px;
+    }
 
     .searchOverlay input{
         width: 328px;

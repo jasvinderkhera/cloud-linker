@@ -78,9 +78,8 @@ function Profile() {
             const userId = user.uid;
             const profilePicRef = ref(realtimeDb, `users/${userId}/profilePicture`);
 
-            // Save the Base64 string to the Realtime Database
             await set(profilePicRef, imageFile);
-            setProfilePic(imageFile); // Update the UI
+            setProfilePic(imageFile); 
             toast.success('Profile picture updated successfully!');
         } catch (error) {
             console.error('Error updating profile picture:', error);
