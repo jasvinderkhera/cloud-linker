@@ -45,10 +45,10 @@ function Contact() {
           <p className='text-start fw-bold fs-5 w-75'>Kishan Sharma</p>
           <p className='text-start fs-5 w-75'>Kishan Sharma</p>
           <p className='text-start fs-5 w-75 fw-bold'>UI/UX Designer</p>
-          <a href="" onClick={(e) => { e.preventDefault()}} className="navlink w-75 fs-5 text-decoration-none">Portfolio...</a>
+          <a href="https://www.linkedin.com/in/ronak-s-4aba0932a/recent-activity/all/" target='_blank' className="navlink w-75 fs-5 text-decoration-none">Portfolio...</a>
           <div className="socialMedia w-75 mt-3 d-flex justify-content-start gap-4">
               <a href="" onClick={(e) => { e.preventDefault()}} className="nav-link" target='_blank'><img src={images.github} alt="" className='img-fluid' /></a>
-              <a href="" onClick={(e) => { e.preventDefault()}} className="nav-link" target='_blank'><img src={images.linkedin} alt="" className='img-fluid' /></a>
+              <a href="https://www.linkedin.com/in/ronak-s-4aba0932a/recent-activity/all/" className="nav-link" target='_blank'><img src={images.linkedin} alt="" className='img-fluid' /></a>
              <a href="" onClick={(e) => { e.preventDefault()}} className="nav-link" target='_blank'> <img src={images.fb} alt="" className='img-fluid' /></a>
               <a href="" onClick={(e) => { e.preventDefault()}} className="nav-link" target='_blank'><img src={images.insta} alt="" className='img-fluid' /></a>
             </div>
