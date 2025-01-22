@@ -18,7 +18,7 @@ function Contact() {
                   <img src={images.dp} alt="" className='img-fluid'/>
                 </div>
                 <div className="contactBtn">
-                    <a href="https://github.com/jasvinderkhera" className='nav-link px-4 py-2 bg-primary text-white rounded-2'>Contact</a>
+                    <a href="https://github.com/jasvinderkhera" target='_blank' className='nav-link px-4 py-2 bg-primary text-white rounded-2'>Contact</a>
                 </div>
             </div>
             <p className='text-start fw-bold fs-5 w-75'>Jasvinder Khera</p>
@@ -39,7 +39,7 @@ function Contact() {
             <img src={images.user} alt="" className='userImg'/>
             </div>
             <div className="contactBtn">
-                <a href="" onClick={(e) => { e.preventDefault()}} className='nav-link px-4 py-2 bg-primary text-white rounded-2'>Contact</a>
+                <a href="https://www.linkedin.com/in/ronak-s-4aba0932a/recent-activity/all/" target='_blank' className='nav-link px-4 py-2 bg-primary text-white rounded-2'>Contact</a>
             </div>
           </div>
           <p className='text-start fw-bold fs-5 w-75'>Kishan Sharma</p>
