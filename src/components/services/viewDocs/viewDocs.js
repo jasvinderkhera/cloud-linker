@@ -330,9 +330,7 @@ function ViewDocs() {
             />
             <p className='fw-bold py-2'>{selectedDoc.name}</p>
             <div className="d-flex justify-content-around mt-3">
-              <Button className='btn-success' onClick={() => handleRename(selectedDoc.id)}>
-                Rename
-              </Button>
+             
               <Button className='btn btn-danger' onClick={() => handleDelete(selectedDoc.id)}>
                 Delete
               </Button>
